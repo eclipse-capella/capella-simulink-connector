@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.eclipse.capella.simulink.m2m.capella.export" name="%extension-point.name" schema="schema/org.eclipse.capella.simulink.m2m.capella.export.exsd"/>
+   <extension
+         id="org.eclipse.capella.simulink.m2m.capella.to.pivot.mapping.sm"
+         name="%extension.name"
+         point="org.polarsys.kitalpha.transposer.rules.handler.mapping">
+      <mapping
+            context="org.polarsys.kitalpha.transposer.transformation.context.GenericTransformationContext"
+            description="Transformation of a Capella elements to the Pivot Model. It will be used to initialize the MDL model"
+            domainHelper="org.eclipse.capella.simulink.m2m.capella.common.CapellaDomainHelper"
+            mappingName="State Machine - Capella to Pivot Model Transformation"
+            mappingPurpose="org.eclipse.capella.simulink.m2m.capella.to.pivot.purpose.sm"
+            private="false">
+         <mappingPackage
+               name="State Machine transformation">
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.capellacommon.StateMachine"
+                  name="State Machine"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.sm.StateMachineRule"
+                     enabled="true"
+                     name="State Machine transformation rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.capellacommon.State"
+                  name="State"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.sm.StateRule"
+                     enabled="true"
+                     name="State transformation rule">
+               </defaultMappingPossibility>
+               <mappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.sm.FinalStateRule"
+                     enabled="true"
+                     name="FinalState transformation rule">
+               </mappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.capellacommon.Pseudostate"
+                  name="PseudoState"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.sm.PseudostateRule"
+                     enabled="true"
+                     name="Pseudostate transformation rule">
+               </defaultMappingPossibility>
+            </mappingElement>    
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.capellacommon.Region"
+                  name="Region"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.sm.RegionRule"
+                     enabled="true"
+                     name="Region transformation rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.capellacommon.StateTransition"
+                  name="StateTransition"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.sm.StateTransitionRule"
+                     enabled="true"
+                     name="StateTransition transformation rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <!-- map data package and its content -->
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.fa.FunctionalExchange"
+                  name="FunctionalExchange"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.sm.FunctionalExchangeRule"
+                     enabled="true"
+                     name="FunctionalExchange to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.cs.InterfacePkg"
+                  name="InterfacePkg"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.InterfacePackageRule"
+                     enabled="true"
+                     name="InterfacePkg to Dictionary rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.DataPkg"
+                  name="DataPkg"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.DataPackageRule"
+                     enabled="true"
+                     name="DataPkg to Dictionary rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.Class"
+                  name="Class"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ClassRule"
+                     incompleteRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ClassRule"
+                     enabled="true"
+                     name="Class to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.NumericType"
+                  name="NumericType"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.NumericTypeRule"
+                     enabled="true"
+                     name="NumericType to type Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.PhysicalQuantity"
+                  name="PhysicalQuantity"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.PhysicalQuantityRule"
+                     enabled="true"
+                     name="PhysicalQuantity to type Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.Enumeration"
+                  name="Enumeration"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.EnumerationRule"
+                     enabled="true"
+                     name="Enumeration to type rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.ExchangeItem"
+                  name="ExchangeItem"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ExchangeItemRule"
+                     enabled="true"
+                     name="ExchangeItem to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+         </mappingPackage>
+      </mapping>
+   </extension>
+   <extension
+         id="org.eclipse.capella.simulink.m2m.capella.to.pivot.mapping.function"
+         name="%extension.name.0"
+         point="org.polarsys.kitalpha.transposer.rules.handler.mapping">
+      <mapping
+            context="org.polarsys.kitalpha.transposer.transformation.context.GenericTransformationContext"
+            description="Transformation of a Capella elements to the Pivot Model. It will be used to initialize the MDL model"
+            domainHelper="org.eclipse.capella.simulink.m2m.capella.common.CapellaDomainHelper"
+            mappingName="Function - Capella to Pivot Model Transformation"
+            mappingPurpose="org.eclipse.capella.simulink.m2m.capella.to.pivot.purpose.function"
+            private="false">
+         <mappingPackage
+               name="Function transformation">
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.fa.AbstractFunction"
+                  name="AbstractFunction"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.function.FunctionRule"
+                     enabled="true"
+                     name="Abstract function To System rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.fa.FunctionPort"
+                  name="FunctionPort"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.function.FunctionPortRule"
+                     enabled="true"
+                     name="Capella Function Port to Port rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <!-- map data package and its content -->
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.fa.FunctionalExchange"
+                  name="FunctionalExchange"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.function.FunctionalExchangeRule"
+                     enabled="true"
+                     name="FunctionalExchange to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.cs.InterfacePkg"
+                  name="InterfacePkg"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.InterfacePackageRule"
+                     enabled="true"
+                     name="InterfacePkg to Dictionary rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.DataPkg"
+                  name="DataPkg"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.DataPackageRule"
+                     enabled="true"
+                     name="DataPkg to Dictionary rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.Class"
+                  name="Class"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ClassRule"
+                     incompleteRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ClassRule"
+                     enabled="true"
+                     name="Class to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.NumericType"
+                  name="NumericType"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.NumericTypeRule"
+                     enabled="true"
+                     name="NumericType to type Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.PhysicalQuantity"
+                  name="PhysicalQuantity"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.PhysicalQuantityRule"
+                     enabled="true"
+                     name="PhysicalQuantity to type Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.Enumeration"
+                  name="Enumeration"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.EnumerationRule"
+                     enabled="true"
+                     name="Enumeration to type rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.ExchangeItem"
+                  name="ExchangeItem"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ExchangeItemRule"
+                     enabled="true"
+                     name="ExchangeItem to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+         </mappingPackage>
+      </mapping>
+   </extension>
+   <extension
+         id="org.eclipse.capella.simulink.m2m.capella.to.pivot.mapping.fc"
+         name="%extension.name.1"
+         point="org.polarsys.kitalpha.transposer.rules.handler.mapping">
+      <mapping
+            context="org.polarsys.kitalpha.transposer.transformation.context.GenericTransformationContext"
+            description="Transformation of a Capella elements to the Pivot Model. It will be used to initialize the MDL model"
+            domainHelper="org.eclipse.capella.simulink.m2m.capella.common.CapellaDomainHelper"
+            mappingName="FunctionnalChain - Capella to Pivot Model Transformation"
+            mappingPurpose="org.eclipse.capella.simulink.m2m.capella.to.pivot.purpose.fc"
+            private="false">
+         <mappingPackage
+               name="FunctionalChain transformation">
+            <!--mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.fa.AbstractFunction"
+                  name="AbstractFunction"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.fc.BasicFunctionTransformationRule"
+                     enabled="true"
+                     name="AbstractFunction To System/Sub-System rule">
+               </defaultMappingPossibility>
+            </mappingElement-->
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.fa.AbstractFunction"
+                  name="AbstractFunction"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.function.FunctionRule"
+                     enabled="true"
+                     name="Abstract function To System rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.fa.FunctionPort"
+                  name="FunctionPort"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.function.FunctionPortRule"
+                     enabled="true"
+                     name="Capella Function Port to Port rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.fa.FunctionalChain"
+                  name="FunctionalChain"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.fc.FunctionalChainRule"
+                     enabled="true"
+                     name="FunctionalChain to System rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <!-- map data package and its content -->
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.fa.FunctionalExchange"
+                  name="FunctionalExchange"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.function.FunctionalExchangeRule"
+                     enabled="true"
+                     name="FunctionalExchange to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.cs.InterfacePkg"
+                  name="InterfacePkg"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.InterfacePackageRule"
+                     enabled="true"
+                     name="InterfacePkg to Dictionary rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.DataPkg"
+                  name="DataPkg"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.DataPackageRule"
+                     enabled="true"
+                     name="DataPkg to Dictionary rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.Class"
+                  name="Class"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ClassRule"
+                     incompleteRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ClassRule"
+                     enabled="true"
+                     name="Class to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.NumericType"
+                  name="NumericType"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.NumericTypeRule"
+                     enabled="true"
+                     name="NumericType to type Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.PhysicalQuantity"
+                  name="PhysicalQuantity"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.PhysicalQuantityRule"
+                     enabled="true"
+                     name="PhysicalQuantity to type Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.Enumeration"
+                  name="Enumeration"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.EnumerationRule"
+                     enabled="true"
+                     name="Enumeration to type rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.ExchangeItem"
+                  name="ExchangeItem"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ExchangeItemRule"
+                     enabled="true"
+                     name="ExchangeItem to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+         </mappingPackage>
+      </mapping>
+   </extension>
+   <extension
+         id="org.eclipse.capella.simulink.m2m.capella.to.pivot.mapping.data"
+         name="%extension.name.2"
+         point="org.polarsys.kitalpha.transposer.rules.handler.mapping">
+      <mapping
+            context="org.polarsys.kitalpha.transposer.transformation.context.GenericTransformationContext"
+            description="Transformation of a Capella elements to the Pivot Model. It will be used to initialize the MDL model"
+            domainHelper="org.eclipse.capella.simulink.m2m.capella.common.CapellaDomainHelper"
+            mappingName="Data &amp; Interfaces- Capella to Pivot Model Transformation"
+            mappingPurpose="org.eclipse.capella.simulink.m2m.capella.to.pivot.purpose.data"
+            private="false">
+         <mappingPackage
+               name="Data &amp; Interfaces transformation">
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.cs.InterfacePkg"
+                  name="InterfacePkg"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.InterfacePackageRule"
+                     enabled="true"
+                     name="InterfacePkg to Dictionary rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.DataPkg"
+                  name="DataPkg"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.DataPackageRule"
+                     enabled="true"
+                     name="DataPkg to Dictionary rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.Class"
+                  name="Class"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ClassRule"
+                     incompleteRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ClassRule"
+                     enabled="true"
+                     name="Class to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.NumericType"
+                  name="NumericType"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.NumericTypeRule"
+                     enabled="true"
+                     name="NumericType to type Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.PhysicalQuantity"
+                  name="PhysicalQuantity"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.PhysicalQuantityRule"
+                     enabled="true"
+                     name="PhysicalQuantity to type Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.datatype.Enumeration"
+                  name="Enumeration"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.EnumerationRule"
+                     enabled="true"
+                     name="Enumeration to type rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.ExchangeItem"
+                  name="ExchangeItem"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ExchangeItemRule"
+                     enabled="true"
+                     name="ExchangeItem to Bus Rule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <!--mappingElement
+                  domainMetaClass="org.polarsys.capella.core.data.information.ExchangeItemElement"
+                  name="ExchangeItemElement"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.eclipse.capella.simulink.m2m.capella.rule.data.ExchangeItemElementRule"
+                     enabled="true"
+                     name="ExchangeItemElement to BusElement Rule">
+               </defaultMappingPossibility>
+            </mappingElement-->
+         </mappingPackage>
+      </mapping>
+   </extension>
+   <extension
+         point="org.polarsys.kitalpha.cadence.core.activity.declaration">
+      <ActivityDeclaration
+            ActivityClass="org.eclipse.capella.simulink.m2m.capella.activity.GenericInitializeTransformation"
+            Identifier="org.eclipse.capella.simulink.m2m.capella.activity.transformation.initialize.generic"
+            Multiple="false"
+            Name="Generic - Initialization of Transformation from Capella to Pivot"
+            WorkflowElementIdentifier="org.polarsys.kitalpha.transposer.before.analysis"
+            WorkflowIdentifier="org.polarsys.kitalpha.transposer.workflow">
+         <Description>
+            Initialization of Transformation Capella to Pivot:
+This activity create an empty Pivot Model with a Project root element.
+         </Description>
+      </ActivityDeclaration>
+   </extension>  
+   <extension
+         point="org.polarsys.kitalpha.cadence.core.activity.declaration">
+      <ActivityDeclaration
+            ActivityClass="org.eclipse.capella.simulink.m2m.capella.activity.SMInitializeTransformation"
+            Identifier="org.eclipse.capella.simulink.m2m.capella.activity.transformation.initialize.sm"
+            Multiple="false"
+            Name="StateMachine - Initialization of Transformation from Capella to Pivot"
+            WorkflowElementIdentifier="org.polarsys.kitalpha.transposer.before.analysis"
+            WorkflowIdentifier="org.polarsys.kitalpha.transposer.workflow">
+         <Description>
+            Initialization of Transformation Capella to Pivot:
+This activity create an empty Pivot Model with a Project root element and a System for each Capella Architectural Level
+         </Description>
+      </ActivityDeclaration>
+   </extension>  
+   <extension
+         point="org.polarsys.kitalpha.cadence.core.activity.declaration">
+      <ActivityDeclaration
+            ActivityClass="org.eclipse.capella.simulink.m2m.capella.activity.CollectGraphicalDataForTransformation"
+            Identifier="org.eclipse.capella.simulink.m2m.capella.activity.transformation.graphical.data.collect"
+            Multiple="false"
+            Name="Collecting the graphical data of Capella elements  to transform to Pivot"
+            WorkflowElementIdentifier="org.polarsys.kitalpha.transposer.before.analysis"
+            WorkflowIdentifier="org.polarsys.kitalpha.transposer.workflow">
+         <Description>
+            Initialization of Transformation Capella to Pivot:
+This activity create an empty Pivot Model with a System root element.
+         </Description>
+      </ActivityDeclaration>
+   </extension>   
+   <extension
+         point="org.polarsys.kitalpha.cadence.core.activity.declaration">
+      <ActivityDeclaration
+            ActivityClass="org.eclipse.capella.simulink.m2m.capella.activity.FinalizeTransformation"
+            Identifier="org.eclipse.capella.simulink.m2m.capella.to.pivot.transformation.post"
+            Multiple="false"
+            Name="Finalization of Transformation Capella to Pivot"
+            WorkflowElementIdentifier="org.polarsys.kitalpha.transposer.after.rule.execution"
+            WorkflowIdentifier="org.polarsys.kitalpha.transposer.workflow">
+         <Description>
+            Finalization of Transformation Capella to Pivot:
+This activity save the Pivot Model created during the transformation.
+         </Description>
+      </ActivityDeclaration>
+   </extension>
+   <extension
+         point="org.polarsys.kitalpha.cadence.core.activity.declaration">
+      <ActivityDeclaration
+            ActivityClass="org.eclipse.capella.simulink.m2m.capella.activity.DictionaryDependencyActivity"
+            Identifier="org.eclipse.capella.simulink.m2m.capella.to.pivot.dictionary.dependency"
+            Multiple="false"
+            Name="Manage of dependencies among dictionary"
+            WorkflowElementIdentifier="org.polarsys.kitalpha.transposer.after.rule.execution"
+            WorkflowIdentifier="org.polarsys.kitalpha.transposer.workflow">
+         <Description>
+            
+         </Description>
+      </ActivityDeclaration>
+   </extension>
+   
+   <extension
+         point="org.polarsys.kitalpha.cadence.core.activity.declaration">
+      <ActivityDeclaration
+            ActivityClass="org.eclipse.capella.simulink.m2m.capella.activity.DataInitializeTransformation"
+            Identifier="org.eclipse.capella.simulink.m2m.capella.activity.transformation.initialize.data"
+            Multiple="false"
+            Name="Data and Interfaces - Initialization of Transformation from Capella to Pivot"
+            WorkflowElementIdentifier="org.polarsys.kitalpha.transposer.before.analysis"
+            WorkflowIdentifier="org.polarsys.kitalpha.transposer.workflow">
+         <Description>
+            Initialization of Transformation Capella to Pivot:
+This activity create an empty Pivot Model with a head dictionnary
+         </Description>
+      </ActivityDeclaration>
+   </extension>
+   <extension
+         point="org.eclipse.capella.simulink.m2m.capella.export">
+      <export
+            handlerClass="org.eclipse.capella.simulink.capella.m2m.export.DataHandler"
+            operationId="data.export.operation">
+      </export>
+      <export
+            handlerClass="org.eclipse.capella.simulink.capella.m2m.export.StateMachineHandler"
+            operationId="statemachine.export.operation">
+      </export>
+      <export
+            handlerClass="org.eclipse.capella.simulink.capella.m2m.export.FunctionalChainHandler"
+            operationId="fc.export.operation">
+      </export>
+      <export
+            handlerClass="org.eclipse.capella.simulink.capella.m2m.export.FunctionHandler"
+            operationId="functions.export.operation">
+      </export>
+   </extension> 
+
+</plugin>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.capella.simulink.core:Dictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.capella.simulink.core="http://www.eclipse.org/capella/simulink/core/1.0" id="432b49c4-6e35-4ffb-94ab-b2383f15c372" name="Built in types">
+  <datatypes xsi:type="org.eclipse.capella.simulink.core:BuiltIntype" id="15c85f46-ad7f-4fc6-af4c-4b91579177b1" name="int"/>
+  <datatypes xsi:type="org.eclipse.capella.simulink.core:BuiltIntype" id="73495737-7776-4b32-bd60-679298ddd36b" name="int8"/>
+  <datatypes xsi:type="org.eclipse.capella.simulink.core:BuiltIntype" id="3711c187-c8c8-4f26-95f1-e47d7af21bc8" name="double"/>
+  <datatypes xsi:type="org.eclipse.capella.simulink.core:BuiltIntype" id="895807ab-63ff-4779-8bed-8ff8180aa13e" name="boolean"/>
+</org.eclipse.capella.simulink.core:Dictionary>

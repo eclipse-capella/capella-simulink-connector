@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2020, 2026 THALES GLOBAL SERVICES.&#xA;&#xA;This program and the accompanying materials are made available under the&#xA;terms of the Eclipse Public License 2.0 which is available at&#xA;http://www.eclipse.org/legal/epl-2.0&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;  Thales - initial API and implementation&#xA;"
+    modelDirectory="/org.eclipse.capella.simulink.core.model/src" modelPluginID="org.eclipse.capella.simulink.core.model"
+    modelName="Mlinfra" editPluginClass="org.eclipse.capella.simulink.core.model.edit.mlinfra.provider.MLInfraEditPlugin"
+    editorPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>../../org.eclipse.capella.simulink.core/model/mlinfra.ecore</foreignModel>
+  <genPackages prefix="MLInfra" basePackage="org.eclipse.capella.simulink.core.model"
+      disposableProviderFactory="true" ecorePackage="../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#/">
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//RawElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//RawElement/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//RawElement/children"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//RawElement/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//RawElement/creationRequired"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//RawElement/creationParameters"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//Value"/>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//PrimitiveValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//PrimitiveValue/specification"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ElementReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ElementReference/element"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ParameterToValueEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ParameterToValueEntry/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ParameterToValueEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ElementParameterReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ElementParameterReference/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ElementParameterReference/elementReference"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//MultipleValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//MultipleValue/values"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ParameterizedElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ParameterizedElement/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//ParameterizedElement/reference"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//IdentifiedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//IdentifiedElement/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlinfra.ecore#//IdentifiedElement/originatorId"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

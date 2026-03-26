@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.capella.simulink.core:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.capella.simulink.core="http://www.eclipse.org/capella/simulink/core/1.0" id="dfbded07-9cd9-4aec-a9ca-9feaedfd2bb6" name="capella-mls-ref-project">
+  <systems id="397e2415-4362-4c4e-b030-323af42e636b" name="LF-P">
+    <ports id="_n6yVEJxwEeuSIZDDIqfdxQ" name="EN_LF-P" description="Mode 1, Mode 3, Mode 2" kind="Enable"/>
+    <ports id="_n60KQpxwEeuSIZDDIqfdxQ" name="EN_LF-C-Sys (LF-C-Sys)" description="S1/3, S1/2, S1/1"/>
+    <ports id="_n60KRpxwEeuSIZDDIqfdxQ" name="FIP 1 (LF-C-Sys)" index="2"/>
+    <ports id="_n60KSpxwEeuSIZDDIqfdxQ" name="FOP 1 (LF-C-Sys)" kind="Outport"/>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:Subsystem" id="bec54430-c4d4-474d-8207-a3cab762e3d3" name="LF-C-Sub-Sys" source="CapellaElements/Subsystem/Function">
+      <ports id="_n60KQJxwEeuSIZDDIqfdxQ" name="EN_LF-C-Sys (LF-C-Sys)" description="S1/3, S1/2, S1/1"/>
+      <ports id="_n60KRJxwEeuSIZDDIqfdxQ" name="FIP 1 (LF-C-Sys)" index="2"/>
+      <ports id="_n60KSJxwEeuSIZDDIqfdxQ" name="FOP 1 (LF-C-Sys)" kind="Outport"/>
+      <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="cd63d41b-4f87-41e4-9e3a-23b243c0dcde" name="Reference to LF-C-Sys" source="CapellaElements/ModelRef/Model_Function" system="0ec69bf0-125a-4ecd-b56b-b3fc23ca1779"/>
+      <lines id="_n60KQZxwEeuSIZDDIqfdxQ" source="_n60KQJxwEeuSIZDDIqfdxQ" target="derived-_n6yVEZxwEeuSIZDDIqfdxQ"/>
+      <lines id="_n60KRZxwEeuSIZDDIqfdxQ" source="_n60KRJxwEeuSIZDDIqfdxQ" target="derived-63fb3140-93ab-45ad-bf26-7311565374a0"/>
+      <lines id="_n60KSZxwEeuSIZDDIqfdxQ" source="derived-84645b0c-79c4-4994-bf14-a76cc116680b" target="_n60KSJxwEeuSIZDDIqfdxQ"/>
+    </blocks>
+    <lines id="_n60KQ5xwEeuSIZDDIqfdxQ" source="_n60KQpxwEeuSIZDDIqfdxQ" target="_n60KQJxwEeuSIZDDIqfdxQ"/>
+    <lines id="_n60KR5xwEeuSIZDDIqfdxQ" source="_n60KRpxwEeuSIZDDIqfdxQ" target="_n60KRJxwEeuSIZDDIqfdxQ"/>
+    <lines id="_n60KS5xwEeuSIZDDIqfdxQ" source="_n60KSJxwEeuSIZDDIqfdxQ" target="_n60KSpxwEeuSIZDDIqfdxQ"/>
+  </systems>
+  <systems id="0ec69bf0-125a-4ecd-b56b-b3fc23ca1779" name="LF-C-Sys">
+    <ports id="_n6yVEZxwEeuSIZDDIqfdxQ" name="EN_LF-C-Sys" description="S1/3, S1/2, S1/1" kind="Enable"/>
+    <ports id="63fb3140-93ab-45ad-bf26-7311565374a0" name="FIP 1"/>
+    <ports id="84645b0c-79c4-4994-bf14-a76cc116680b" name="FOP 1" kind="Outport"/>
+  </systems>
+</org.eclipse.capella.simulink.core:Project>

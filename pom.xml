@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2019, 2026 THALES GLOBAL SERVICES.
+  
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Contributors:
+       Thales - initial API and implementation
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<groupId>org.eclipse.capella</groupId>
+	<artifactId>org.eclipse.capella.simulink</artifactId>
+	<version>0.2.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tycho.version>4.0.9</tycho.version>
+		<tycho.extras.version>4.0.9</tycho.extras.version>
+		<antrun-version>3.0.0</antrun-version>
+
+		<tycho.scmUrl>scm:git:https://git.polarsys.org/c/capella/capella-simulink.git</tycho.scmUrl>
+
+		<capella-version>Capella-6.1.0</capella-version>
+		<packagedAddonName>capella-simulink-connector</packagedAddonName>
+		<updateSiteName>${packagedAddonName}-${unqualifiedVersion}.${buildQualifier}-${capella-version}-updateSite</updateSiteName>
+		<dropinName>${packagedAddonName}-${unqualifiedVersion}.${buildQualifier}-${capella-version}-dropins</dropinName>
+		
+		<!-- for packaging -->
+		<platform-name>2023-03</platform-name>
+		<eclipse-repo.url>http://download.eclipse.org/releases/${platform-name}</eclipse-repo.url>
+
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.language>java</sonar.language>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>all</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<!-- core plugins -->
+				<module>sources/plugins/org.eclipse.capella.simulink.core</module>
+				<module>sources/plugins/org.eclipse.capella.simulink.doc</module>
+				<module>sources/plugins/org.eclipse.capella.simulink.core.model</module>
+				<module>sources/plugins/org.eclipse.capella.simulink.core.model.edit</module>
+				<module>sources/plugins/org.eclipse.capella.simulink.core.model.editor</module>
+				<module>sources/plugins/org.eclipse.capella.simulink.transformation</module>
+				<!-- core features -->
+				<module>sources/features/org.eclipse.capella.simulink.core.feature</module>
+				<!-- releng -->
+				<module>releng/org.eclipse.capella.simulink.updatesite</module>
+				<!--  core tests -->
+				<module>sources/plugins/org.eclipse.capella.simulink.transformation.tests</module>
+
+				<!-- capella plugins -->
+				<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m</module>
+				<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m.ui</module>
+				<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m.examples</module>
+				<!-- capella features -->
+				<module>capella/features/org.eclipse.capella.simulink.capella.feature</module>
+				<!--  capella tests  -->
+				<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m.tests</module>
+			</modules>
+		</profile>
+	</profiles>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<testSourceDirectory>src</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<strictBinIncludes>false</strictBinIncludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<dependency-resolution>
+						<extraRequirements>
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.eclipse.equinox.console</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.apache.felix.gogo.shell</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+						</extraRequirements>
+					</dependency-resolution>
+					<target>
+						<artifact>
+							<groupId>org.eclipse.capella</groupId>
+							<artifactId>org.eclipse.capella.simulink</artifactId>
+							<version>0.2.0-SNAPSHOT</version>
+							<classifier>releng/org.eclipse.capella.simulink.target/mls_bridge_target</classifier>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!-- Prepare dropins -->
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-eclipse-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<repositories>
+							<repository>
+								<id>eclipse-repo</id>
+								<layout>p2</layout>
+								<url>${eclipse-repo.url}</url>
+							</repository>
+						</repositories>
+						<dependencies>
+							<dependency>
+								<artifactId>org.eclipse.equinox.p2.repository.tools</artifactId>
+								<type>eclipse-plugin</type>
+							</dependency>
+							<dependency>
+								<artifactId>org.eclipse.equinox.p2.core.feature</artifactId>
+								<type>eclipse-feature</type>
+							</dependency>
+							<dependency>
+								<artifactId>org.eclipse.equinox.p2.extras.feature</artifactId>
+								<type>eclipse-feature</type>
+							</dependency>
+							<dependency>
+								<artifactId>org.apache.felix.scr</artifactId>
+								<type>eclipse-plugin</type>
+							</dependency>
+						</dependencies>
+					</configuration>
+					<executions>
+						<execution>
+							<id>create-dropins</id>
+							<phase>package</phase>
+							<goals>
+								<goal>eclipse-run</goal>
+							</goals>
+							<configuration>
+								<appArgLine>-application org.eclipse.equinox.p2.repository.repo2runnable -source file:${project.build.directory}/repository -destination ${project.build.directory}/${packagedAddonName}/eclipse</appArgLine>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<!--  Package Dropins -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>${antrun-version}</version>
+					<executions>
+						<!--  Package Dropins -->
+						<execution>
+							<id>package-dropins</id>
+							<phase>package</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<!--  prepare dropins folder -->
+									<delete
+										file="${project.build.directory}/${packagedAddonName}/eclipse/artifacts.jar" />
+									<delete
+										file="${project.build.directory}/${packagedAddonName}/eclipse/content.jar" />
+									<delete includeemptydirs="true">
+										<fileset
+											dir="${project.build.directory}/${packagedAddonName}/eclipse/features"
+											includes="**/META-INF/**" />
+									</delete>
+									
+									<!--  Zip dropins -->
+									<zip
+										destfile="${project.build.directory}/${dropinName}.zip">
+										<fileset dir="${project.build.directory}">
+											<include name="${packagedAddonName}/**" />
+										</fileset>
+									</zip>
+								</target>
+							</configuration>
+						</execution>
+						<!-- Copy relevant jars to matlab folder -->
+						<execution>
+							<id>copy-jars-to-matlab</id>
+							<phase>package</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<!-- prepare folder matlab/toolbox/java_lib -->
+									<delete>
+										<fileset
+											dir="${project.build.directory}/../../../matlab/toolbox/java_lib"
+											includes="*.jar" />
+									</delete>
+									
+									<!-- Copy relevant files -->
+									<copy file="${project.build.directory}/${packagedAddonName}/eclipse/plugins/org.eclipse.capella.simulink.core.model_${unqualifiedVersion}.${buildQualifier}.jar" todir="${project.build.directory}/../../../matlab/toolbox/java_lib"/>
+									<copy file="${project.build.directory}/${packagedAddonName}/eclipse/plugins/org.eclipse.capella.simulink.transformation_${unqualifiedVersion}.${buildQualifier}.jar" todir="${project.build.directory}/../../../matlab/toolbox/java_lib"/>
+									<!-- including the required EMF libraries -->
+									<get src="https://download.eclipse.org/releases/2021-03/202103171000/plugins/org.eclipse.emf.common_2.22.0.v20210114-1734.jar" dest="${project.build.directory}/../../../matlab/toolbox/java_lib"/>
+									<get src="https://download.eclipse.org/releases/2021-03/202103171000/plugins/org.eclipse.emf.ecore_2.23.0.v20200630-0516.jar" dest="${project.build.directory}/../../../matlab/toolbox/java_lib"/>
+									<get src="https://download.eclipse.org/releases/2021-03/202103171000/plugins/org.eclipse.emf.ecore.xmi_2.16.0.v20190528-0725.jar" dest="${project.build.directory}/../../../matlab/toolbox/java_lib"/>
+								</target>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- Package Update Site -->
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-repository-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<id>archive-repository</id>
+							<goals>
+								<goal>archive-repository</goal>
+							</goals>
+							<configuration>
+								<finalName>${updateSiteName}</finalName>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.cyclonedx</groupId>
+					<artifactId>cyclonedx-maven-plugin</artifactId>
+					<version>2.8.1</version>
+					<configuration>
+						<schemaVersion>1.5</schemaVersion>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.eclipse.tycho</groupId>
+							<artifactId>tycho-sbom</artifactId>
+							<version>${tycho.version}</version>
+						</dependency>
+					</dependencies>
+					<executions>
+						<execution>
+							<id>create-bom</id>
+							<phase>package</phase>
+							<goals>
+								<goal>makeBom</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

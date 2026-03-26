@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.capella.simulink.operation.description:Catalog xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.eclipse.capella.simulink.operation.description="http://www.eclipse.org/capella/simulink/operation/description/1.0" id="export.operations">
+  <operations id="statemachine.export.operation">
+    <operationkind id="STATE_MACHINES" name="State machines sorted by engineering perspective" description="In each engineering perspective (OA, SA, LA, PA, EPBS), the state machines can be selected.&#xA;The regions, states and transitions of the state machines are included.&#xA;If transitions have triggers, then they are included too.&#xA;If states have internal regions, they are included too (and recursively, their elements are too)." imageURL="full/obj16/StateMachine"/>
+  </operations>
+  <operations id="data.export.operation">
+    <operationkind id="DATA_PKG" name="Data packages sorted by engineering perspective" description="In each engineering perspective (OA, SA, LA, PA, EPBS), the data packages can be selected." imageURL="full/obj16/DataPkg"/>
+  </operations>
+  <operations id="fc.export.operation" readonlyOptions="leaf.functions.export.option" options="leaf.functions.export.option port.naming.option">
+    <operationkind id="FUNCTIONAL_CHAINS" name="Functional chains and all involved components" description="In each engineering perspective (OA, SA, LA, PA, EPBS), we propose the functional chains, their involved components, as well as all the components on which the involved components are deployed (recursively)." imageURL="full/obj16/FunctionalChain"/>
+  </operations>
+  <operations id="functions.export.operation" options="leaf.functions.export.option port.naming.option">
+    <operationkind id="FUNCTIONS" name="Functions, their ports and the states they are available in" description="Proposes all functions of the model. When a function is selected, its ports and the states it is available in are mandated. Recursively, all its sub-functions (with their ports and the states they are available in) and their own sub-functions are recommended." imageURL="full/obj16/LogicalFunctionPkg"/>
+  </operations>
+  <options id="port.naming.option" defaultValue="port.naming.value.1" name="Port naming strategy" description="Naming the function port with the connected Functional Exchange makes the function port names contextualised with the current project.&#xA; In case you consider reusable functions across projects or if you have REC-RPL use for some functions, it is likely the Functional Exchange names connected to the ports of the reusable functions to be different from a Function instance to another.&#xA; In this situation there is a naming discrepancy and this port naming rule shoud not be opt-in.&#xA; You should rename the reusable Function to be fully self-defined. Then you should select the option to name the Simulink Function port based on the Capella Function port name.&#xA;">
+    <descriptionStyle id="style.1" start="383" length="96" fontStyle="1"/>
+    <availableValues id="port.naming.value.1" name="Simulink Function ports named according to the Functional Exchange name connected to this port" value="ExchangeItem"/>
+    <availableValues id="port.naming.value.2" name="Simulink Function ports named according to Capella port name" value="CapellaElement"/>
+  </options>
+  <options id="leaf.functions.export.option" name="Leaf Functions export strategy" defaultValue="leaf.functions.export.value.1">
+    <availableValues id="leaf.functions.export.value.1" name="Model" value="model"/>
+    <availableValues id="leaf.functions.export.value.2" name="Sub-System" value="subsystem"/>
+  </options>
+</org.eclipse.capella.simulink.operation.description:Catalog>

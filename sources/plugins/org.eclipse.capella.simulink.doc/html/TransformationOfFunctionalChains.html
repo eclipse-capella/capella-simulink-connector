@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Transformation of Functional Chains</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-style: normal;
+            line-height: 1.7em;
+            padding: 0.7em;
+        }
+
+        .description {
+            margin-top: 1.3em;
+        }
+
+        .sourceCode {
+            font-family: Consolas, Courier New, monospace;
+        }
+
+        .example {
+            padding-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Transformation of Functional Chains</h1>
+    <p>Get initialized Simulink® models implementing Capella Functional Chains.</p>
+    <h2>Workflow</h2>
+    <p>The generic workflow is detailed in <a href="./GettingStarted.html">Getting
+            started</a>.
+        Below are the specific options to choose in this workflow:
+    <ol>
+        <li>Select in the Capella Project Explorer the <strong>Functional Chains</strong> to export.</li>
+        <li>Open the "Capella Export to Simulink®" tool.</li>
+        <li>Select the transformation type <strong>"Functional
+                chains and all involved components"</strong>.</li>
+        <li>Set the transformation options <strong>"Port naming
+                strategy"</strong>.</li>
+        <li>Import the Function in the project using the generated <span class="sourceCode">.mlcore</span> file.</li>
+    </ol>
+    </p>
+    <h2>How are the Capella Functional Chains elements transformed?</h2>
+    <p>
+    <ul>
+        <li>Functional Chain as a Simulink® model stored in the "model\&lt;ArcadiaPerspective&gt;"
+            folder. The name of the Simulink® model is
+            "&lt;ArcadiaPerspective&gt;_&lt;FunctionalChainName&gt;.slx". This model references models of all
+            involved functions.</li>
+        <li>Involved Functions as a model (default). See <a
+                href="./TransformationOfFunctions.html">Transformation of
+                Functions</span></a><span> for details about how Functions are transformed.
+                </li>
+        <li>Involved Functional Exchanges as lines connecting involved Functions.</li>
+        <li>A Data Dictionary is created for each Functional Chain model linked to it. The name of
+            the data dictionary is "&lt;ArcadiaPerspective&gt;_&lt;FunctionalChainName&gt;.sldd". It is used to
+            store potential Parameters dedicated to the transformed Functional Chain; and to reference other
+            Data Dictionaries storing the definition of the involved Functional Exchanges.</li>
+    </ul>
+    </p>
+    <p>Function models created by the bridge alway capture the full definition of the Function
+        even if a function is created in the context of a Function Chain. Hence, when referenced by a Functional
+        Chain model it is likely all the Function ports are not used. Then an extra work is required to
+        robustify the generated model.</p>
+    <h2>Assumptions &amp; Known Limitations</h2>
+    <p>Nothing to mention here.</p>
+</body>
+
+</html>

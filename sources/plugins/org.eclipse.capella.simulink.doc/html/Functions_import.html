@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CapSLBridge.import</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-style: normal;
+            line-height: 1.7em;
+            padding: 0.7em;
+        }
+
+        .description {
+            margin-top: 1.3em;
+        }
+
+        .sourceCode {
+            font-family: Consolas, Courier New, monospace;
+        }
+
+        .example {
+            padding-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CapSLBridge.import</h1>
+    <div>Function to import Capella model elements from an
+        <span class="sourceCode">.mlcore</span>
+        file.
+    </div>
+    <h2>Syntax</h2>
+    <div>
+        <a class="sourceCode" href="#no-param">CapSLBridge.import</a>
+    </div>
+    <div>
+        <a class="sourceCode" href="#name-value-param">CapSLBridge.import(Name,Value)</a>
+    </div>
+    <h2>Description</h2>
+    <h3 class="sourceCode" id="no-param">CapSLBridge.import</h3>
+    <div class="description">
+        <span class="sourceCode">CapSLBridge.import</span> opens an Explorer window to select the <span
+            class="sourceCode">.mlcore </span> file you want to import.
+        <p>By default, this command creates a new MATLAB Project based on the <a
+                href="./Project_Cap2SL.html">MATLAB Project template "Cap2SL"</a> provided by this
+            toolbox.<br />
+            The project is created in the folder <span class="sourceCode">userpath/&lt;CapellaProjectName&gt;</span> and
+            the
+            project name is the Capella Project name.</p>
+        <p>The import of all the elements populates several files in the various project folders.<br />
+            These files are then initialized with elements representing exported Capella elements.<br />
+            If a project already exists then the function imports the elements in this existing project.</p>
+    </div>
+    <h3 class="sourceCode" id="name-value-param">CapSLBridge.import(Name, Value)</h3>
+    <div class="description">
+        <span class="sourceCode">CapSLBridge.import(<a href="#pair-args">Name,Value</a>)</span>
+        <span> creates or updates a project according to the criteria specified by one or more </span>
+        <span class="sourceCode">Name, Value</span>
+        <span> pair arguments.
+            <p>You can use this syntax to specify the project path as well as the <span
+                    class="sourceCode">.mlcore</span> file
+                to import.</p>
+    </div>
+    <h4 id='pair-args'>Name-Value Pair Arguments</h4>
+    <div>
+        Specify optional comma-separated pairs of <span class="sourceCode">Name,Value</span> arguments.<br />
+        <span class="sourceCode">Name</span> is the argument name and <span class="sourceCode">Value</span> is the
+        corresponding value.<br />
+        <span class="sourceCode">Name</span> must appear inside quotes.<br />
+        You can specify several name and value pair arguments in any order as <span
+            class="sourceCode">Name1,Value1,...,NameN,ValueN</span>.
+    </div>
+    <div>
+        Supported values for <span class="sourceCode">Name</span> are:
+        <ul>
+            <li>
+                <span class="sourceCode">
+                    <a href="#arg-modelpath">'ModelPath'</a>
+                </span>
+            </li>
+            <li>
+                <span class="sourceCode">
+                    <a href="#arg-modelpath">'ProjectPath'</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <h5>
+        <span class="sourceCode">'ModelPath'</span> &mdash; Define the path to the <span
+            class="sourceCode">.mlcore</span>
+        file
+    </h5>
+    <div>
+        character vector
+    </div>
+    <div class="example">
+        <strong>Example:</strong>
+        <div class="sourceCode">CapSLBridge.import('ModelPath', 'C:\tmp\myMLCore.mlcore')</div>
+        imports the specified <span class="sourceCode">.mlcore</span> file in the default folder <span
+            class="sourceCode">userpath/&lt;CapellaProjectName&gt;.</span>
+    </div>
+    <h5><span class="sourceCode">'ProjectPath'</span> &mdash; Define the path of the project</h5>
+    <div>
+        character vector
+    </div>
+    <div class="example">
+        <strong>Example: </strong>
+        <div class="sourceCode">CapSLBridge.import('ProjectPath', 'C:\tmp\myProjectFolder')</div>
+        opens an Explorer window to select the <span class="sourceCode">.mlcore</span> file you want to import, then
+        creates
+        or updates the project at the specified location.
+    </div>
+</body>
+
+</html>

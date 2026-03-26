@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generationChain:GenerationChain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generationChain="http://www.eclipse.org/egf/1.0.0/generationChain" name="ML" factoryComponentName="org.eclipse.egf.chain.ml">
+  <elements xsi:type="generationChain:GenerationChain" name="mlinfra">
+    <elements xsi:type="generationChain:EmfGeneration" name="Emf Generation for mlinfra" modelPath="/org.eclipse.capella.simulink.core/model/mlinfra.ecore" generateModel="true" generateEdit="true" pluginName="org.eclipse.capella.simulink.core.model" basePackage="org.eclipse.capella.simulink.core.model"/>
+  </elements>
+  <elements xsi:type="generationChain:GenerationChain" name="mlcore">
+    <elements xsi:type="generationChain:EmfGeneration" name="Emf Generation for mlcore" modelPath="/org.eclipse.capella.simulink.core/model/mlcore.ecore" generateModel="true" generateEdit="true" generateEditor="true" pluginName="org.eclipse.capella.simulink.core.model" basePackage="org.eclipse.capella.simulink.core.model"/>
+  </elements>
+  <elements xsi:type="generationChain:GenerationChain" name="mloperation">
+    <elements xsi:type="generationChain:EmfGeneration" name="Emf Generation for mloperation" modelPath="/org.eclipse.capella.simulink.core/model/mloperation.ecore" generateModel="true" generateEdit="true" generateEditor="true" pluginName="org.eclipse.capella.simulink.core.model" basePackage="org.eclipse.capella.simulink.core.model"/>
+  </elements>
+</generationChain:GenerationChain>

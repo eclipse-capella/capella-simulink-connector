@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Transformation of Data and Interfaces</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-style: normal;
+            line-height: 1.7em;
+            padding: 0.7em;
+        }
+
+        .description {
+            margin-top: 1.3em;
+        }
+
+        .sourceCode {
+            font-family: Consolas, Courier New, monospace;
+        }
+
+        .example {
+            padding-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Transformation of Data and Interfaces</h1>
+    <p>Get structured data definition in Simulink® Dictionary from Capella Data definition.
+    </p>
+
+    <h2>Workflow</h2>
+    <p>
+        The generic workflow is detailed in <a href="./GettingStarted.html">Getting started</a>.
+        Below are the specific options to choose in this workflow:</span>
+    <ol>
+        <li>
+            Select in the Capella Project Explorer the <strong>Data Packages</strong> to export.
+        </li>
+        <li>
+            Open the "Capella Export to Simulink®" tool.
+        </li>
+        <li>
+            Select the transformation type "<strong>Data Packages sorted by engineering perspective</strong>".
+        </li>
+        <li>
+            <span>Generate the export file.</span>
+        </li>
+        <li>
+            Import the Data Packages in the project using the generated <span class="sourceCode">.mlcore</span> file.
+        </li>
+    </ol>
+    </p>
+
+    <h2>What are the data transformed?</h2>
+    <p>
+        This transformation computes an extended scope of transformation based on the Data Packages selected for this
+        transformation.<br />
+        Additionaly to all the elements contained in the selected Data Packages (the User scope), the transformation
+        extends
+        the scope to all the elements required to fully define all the elements of the User scope.
+    </p>
+    <p>
+        Let's consider the following example where Exchange Items are stored in the "ExchangeItems" data package,
+        classes
+        typing some elements of Exchange Items are stored in "Classes" data package and physical quantities and units
+        used
+        to define Exchange Items elements and properties of classes are stored in "Physics" data package.
+    </p>
+    <p>
+        <img class="imageNode"
+            src="data:image/png;base64,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"
+            width="180" height="285" alt="" style="vertical-align: baseline" />
+    </p>
+    <p>
+        Let's consider the User scope is the "ExchangeItems" data package only, then the extended scope is :
+    <ul>
+        <li>
+            all the elements of the "ExchangeItems" data package.
+        </li>
+        <li>
+            the classes used to type the Exchange Items elements. These classes are then stored in their corresponding
+            Data
+            Packages.
+        </li>
+        <li>
+            the Physical Quantities used to define Exchange Items elements and properties of classes.These classes are
+            then
+            stored in their corresponding Data Packages.
+        </li>
+    </ul>
+    </p>
+    <h2>How are the Capella Data elements transformed?</h2>
+    <p>
+    <ul>
+        <li>
+            Data Package is transformed as a <span class="sourceCode">Data Dictionary</span> stored in the "data"
+            project
+            folder.
+            The name of the data dictionary is <span
+                class="sourceCode">"&lt;ArcadiaPerspective&gt;_&lt;DataPackageName&gt;.sldd"</span>.
+        </li>
+        <li>
+            Exchange Item is transformed as <span class="sourceCode">Simulink.Bus</span>.
+            The bus name is <span class="sourceCode">"busEI_&lt;ExchangeItemName&gt;"</span>.
+            It is stored in the data dictionary corresponding to the Data Package where the Exchange Item is stored.
+        </li>
+        <li>
+            Exchange Item element is transformed as <span class="sourceCode">Simulink.BusElement</span>.
+            The bus element is typed with respect to its type defined in Capella.
+            The Bus element name is the same than the Capella element but potentially transformed to comply with MATLAB
+            naming
+            constraints.
+        </li>
+        <li>
+            Class is transformed as <span class="sourceCode">Simulink.Bus</span>.
+            The Bus name is "busClass_&lt;ClassName&gt;"</span>
+        </li>
+        <li>
+            Class element (property or composition) is transformed as <span
+                class="sourceCode">Simulink.BusElement</span>.
+        </li>
+        <li>
+            Enumeration is transformed as <span class="sourceCode">Simulink.data.dictionary.EnumTypeDefinition</span>.
+        </li>
+        <li>
+            Enumeration literal is transformed as enumeral of <span
+                class="sourceCode">Simulink.data.dictionary.EnumTypeDefinition</span>.
+        </li>
+        <li>
+            Physical Quantity is transformed as <span class="sourceCode">Simulink.Signal</span>.
+        </li>
+    </ul>
+    </p>
+    <p>
+        Possible values for <span class="sourceCode">&lt;ArcadiaPerspective&gt;</span> are:
+    <ul>
+        <li>
+            <span class="sourceCode">'OA'</span> for the Operational Analysis perspective;
+        </li>
+        <li>
+            <span class="sourceCode">'SA'</span> for the System Needs Analysis perspective;
+        </li>
+        <li>
+            <span class="sourceCode">'LA'</span> for the Logical Architecture perspective;
+        </li>
+        <li>
+            <span class="sourceCode">'PA'</span> for the Physical Architecture perspective.
+        </li>
+    </ul>
+    </p>
+
+    <h2>Assumptions &amp; Limitations</h2>
+    <p>
+        A few limitations are identified, as follows:
+    </p>
+
+    <h3>Cyclic reference</h3>
+    <p>
+        Depending on where the various data are stored in Data Packages and the dependencies between them, there might
+        be
+        cyclic references between data dictionaries.
+        This is not supported and an error will occurat the model compile time.
+    </p>
+    <p>
+        <em><u>Workaround:</u></em>
+        organize Data Packages content to avoid cyclic references.
+    </p>
+
+    <h3>Name conflict</h3>
+    <p>
+        Although Capella allows to have the same name for several elements, this can cause name conflict in MATLAB.
+    </p>
+    <p>
+        <em><u>Workaround:</u></em>
+        do not name the same elements that will be stored in data dictionaries.
+    </p>
+</body>
+
+</html>
