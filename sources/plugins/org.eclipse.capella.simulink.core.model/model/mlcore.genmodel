@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2020, 2026 THALES GLOBAL SERVICES.&#xA;&#xA;This program and the accompanying materials are made available under the&#xA;terms of the Eclipse Public License 2.0 which is available at&#xA;http://www.eclipse.org/legal/epl-2.0&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;  Thales - initial API and implementation&#xA;"
+    modelDirectory="/org.eclipse.capella.simulink.core.model/src" modelPluginID="org.eclipse.capella.simulink.core.model"
+    modelName="MLCore" editPluginClass="org.eclipse.capella.simulink.core.model.edit.mlcore.provider.MLCoreEditPlugin"
+    editorPluginClass="org.eclipse.capella.simulink.core.model.editor.mlcore.presentation.MLCoreEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" editPluginID="org.eclipse.capella.simulink.core.model.edit"
+    editorPluginID="org.eclipse.capella.simulink.core.model.editor" usedGenPackages="mlinfra.genmodel#//mlinfra"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>../../org.eclipse.capella.simulink.core/model/mlcore.ecore</foreignModel>
+  <genPackages prefix="MLCore" basePackage="org.eclipse.capella.simulink.core.model"
+      disposableProviderFactory="true" ecorePackage="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortKind">
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortKind/Inport"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortKind/Outport"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortKind/Enable"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortKind/Trigger"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortKind/State"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortKind/LConn"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortKind/RConn"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortKind/Ifaction"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortKind/Reset"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Scope">
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Scope/Input"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Scope/Local"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Scope/Output"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Scope/Constant"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Scope/DataStoreMemory"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Scope/Temporary"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Scope/Imported"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Scope/Exported"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Scope/Parameter"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//JunctionType">
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//JunctionType/CONNECTIVE"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//JunctionType/HISTORY"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//DecompositionType">
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//DecompositionType/EXCLUSIVE_OR"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//DecompositionType/PARALLEL_AND"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SLDiagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SLDiagram/blocks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SLDiagram/lines"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Block">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Block/diagram"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Block/source"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Line">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Line/diagram"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Line/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Line/target"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Port">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Port/holder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Port/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Port/index"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//System">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//System/fileName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//System/isLibrary"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//System/dictionary"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Subsystem"/>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SLDiagramElement">
+      <genOperations ecoreOperation="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SLDiagramElement/getDiagram"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//NamedElement/name"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//NamedElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Chart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Chart/transitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Chart/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Chart/symbols"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SFChartElement">
+      <genOperations ecoreOperation="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SFChartElement/getChart"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//AState">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//AState/incomingTransitions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//AState/outgoingTransitions"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//AState/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Transition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Transition/event"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Transition/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Transition/action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Transition/destination"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Transition/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Transition/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Symbol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Symbol/scope"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Symbol/underlyingPort"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//State/exit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//State/entry"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//State/during"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//State/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//State/subStates"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Junction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Junction/type"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Data"/>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Message"/>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Event"/>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Project">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Project/systems"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Project/dictionaries"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Bus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Bus/busElements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//BusElement"/>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Datatype"/>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//BuiltIntype"/>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//CustomType"/>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Dictionary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Dictionary/datatypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Dictionary/fileName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Dictionary/subDictionaries"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortHolder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//PortHolder/ports"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SystemReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SystemReference/system"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SystemReference/referencedPorts"/>
+      <genOperations ecoreOperation="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SystemReference/getReferencedPort">
+        <genParameters ecoreParameter="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//SystemReference/getReferencedPort/systemPort"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//DatatypeHolder">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//DatatypeHolder/datatype"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Enumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Enumeration/literals"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Literal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Literal/value"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Signal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Signal/initialValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.capella.simulink.core/model/mlcore.ecore#//Signal/unit"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding="utf-8"?>
+<!--
+  Copyright (c) 2019, 2026 THALES GLOBAL SERVICES.
+  
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Contributors:
+       Thales - initial API and implementation
+-->
+<toc version="2.0">
+    <tocitem target="help_index.html">Connector for Capella and Simulink®
+        <tocitem target="GettingStarted.html">Getting Started with the Connector for Capella and Simulink®
+        </tocitem>
+        <tocitem target="TransformationOfModesAndStatesMachines.html">Transformation of Modes and States Machines
+        </tocitem>
+        <tocitem target="TransformationOfDataInterfaces.html">Transformation of Data and Interfaces
+        </tocitem>
+        <tocitem target="TransformationOfFunctions.html">Transformation of Functions
+        </tocitem>
+        <tocitem target="TransformationOfFunctionalChains.html">Transformation of Functional Chains
+        </tocitem>
+        <tocitem target="BestPractices.html">Best practices
+        </tocitem>
+        <tocitem target="KnownLimitations.html">Known limitations
+        </tocitem>
+    </tocitem>
+</toc>

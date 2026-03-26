@@ -1,0 +1,46 @@
+
+%[FileName,PathName] = uigetfile('*.mlcore','Select the model file to import.');
+FileName = 'My.mlcore';
+PathName = 'C:\Users\XXXX\git\simulink_bridge\prototype\sources\plugins\org.eclipse.capella.simulink.transformation\examples\pivot\';
+
+importModel (PathName, FileName)
+
+%% Load an instance of the Simulink metamodel
+%% in: a path char array
+%% in: a filename char array
+function importModel ( pathName, fileName)
+    srcpath = [pathName, fileName];
+    if ~isequal([0 0], srcpath)
+        pivotModel = loadModel(srcpath);
+        transform(pivotModel);
+    end
+end
+
+%% Load an instance of the Simulink metamodel
+%% in: a path to model file char array
+%% out: a pivot model instance
+function model = loadModel ( srcpath)
+    import org.eclipse.capella.simulink.core.model.mlcore.MLCorePackage
+    rs = org.eclipse.emf.ecore.resource.impl.ResourceSetImpl();
+    pr = rs.getPackageRegistry();
+    uri = MLCorePackage.eNS_URI;
+    pkg = MLCorePackage.eINSTANCE;
+    pr.put(uri, pkg);
+    uri = org.eclipse.emf.common.util.URI.createFileURI(srcpath);
+    res = org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl();
+    res.setURI(uri);
+    rs.getResources().add(res);
+    param = java.util.HashMap();
+    res.load(param);
+
+    model = res.getContents().get(0);
+end
+
+%% Convert a pivot model into simulink model
+%% in: a java pivot model instance
+function transform(pivotModel)
+    name = transpose(pivotModel.getName().toCharArray);
+    disp(name)
+    new_system(name);
+    open_system(name);
+end

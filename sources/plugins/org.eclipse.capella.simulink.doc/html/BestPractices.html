@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Best Practices using the Connector for Capella and Simulink®</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-style: normal;
+            line-height: 1.7em;
+            padding: 0.7em;
+        }
+
+        .sourceCode {
+            font-family: Consolas, Courier New, monospace;
+        }
+
+        .example {
+            padding-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Best Practices using the Connector for Capella and Simulink®</h1>
+    <h2>Best practices</h2>
+    <div>See also the <a href="./KnownLimitations.html">Known limitations</a> to not fall into
+        them.</div>
+    <h3>Naming Recommendations for Capella elements</h3>
+    <div>
+        To avoid compilation errors and manual work in the MATLAB environment, here are the recommended naming rules to
+        apply:
+    </div>
+    <ul>
+        <li>
+            Start with a letter, followed by letters, digits, or underscores.
+        </li>
+        <li>
+            Do not use spaces for any element related to interfaces: Functional Exchanges, Exchange Items, Classes,
+            Physical
+            Quantities, Enumerations.
+        </li>
+        <li>
+            Avoid two elements having the same name (especially if they are of the same type).
+        </li>
+        <li>
+            Limit the name length to 50 characters (not more than 55).
+        </li>
+    </ul>
+    <h3>Rename the mlcore file</h3>
+    <div>
+        <span>After generating the .mlcore file in Capella it is recommended to rename it to make the content more
+            explicit.
+            By default, the name is the Capella project name.</span>
+    </div>
+    <h3>Initialize your project before the first import</h3>
+    <div>
+        Although you can use the <a href="./Functions_import.html">command line interface</a> to perform the
+        first import and this will create a new project automatically for you, it is recommended to first
+        initialize your project using the project template released with the MATLAB toolbox and then make the first
+        import.
+        See <a href="./Project_Cap2SL.html">Project template</a> for more details.
+    </div>
+    <h3>Put your project under Git version control</h3>
+    <p>
+        As a general good practice, as soon as the project is created put it under Git source control.
+    </p>
+    <p>
+        It is highly recommended when you want to work as a team on a single project.
+    </p>
+    <p>
+        It is highly recommended for iterative transformation.
+    </p>
+    <p>
+        Even you are working alone on the project, this is a good practice to apply. In this case, it is not required
+        to link the local repository to a remote repository.
+    </p>
+</body>
+
+</html>

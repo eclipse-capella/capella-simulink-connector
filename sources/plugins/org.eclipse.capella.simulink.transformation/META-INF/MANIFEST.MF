@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.capella.simulink.transformation
+Bundle-Version: 0.2.0.qualifier
+Automatic-Module-Name: org.eclipse.capella.simulink.transformation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.capella.simulink.core.model;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport
+Export-Package: org.eclipse.capella.simulink.transformation,
+ org.eclipse.capella.simulink.transformation.launcher

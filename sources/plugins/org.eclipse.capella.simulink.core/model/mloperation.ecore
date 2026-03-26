@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mloperation" nsURI="http://www.eclipse.org/capella/simulink/operation/1.0"
+    nsPrefix="org.eclipse.capella.simulink.operation">
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration" eSuperTypes="mlinfra.ecore#//ParameterizedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Configuration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="mlinfra.ecore#//ParameterizedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainConfiguration" eType="#//Configuration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+        eType="#//ObjectToConfigurationValueEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectToConfigurationValueEntry" instanceClassName="java.util.Map$Entry"
+      eSuperTypes="mlinfra.ecore#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Configuration"
+        containment="true"/>
+  </eClassifiers>
+  <eSubpackages name="description" nsURI="http://www.eclipse.org/capella/simulink/operation/description/1.0"
+      nsPrefix="org.eclipse.capella.simulink.operation.description">
+    <eClassifiers xsi:type="ecore:EClass" name="ConfigurationOption" eSuperTypes="#//description/DescriptionElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="availableValues" upperBound="-1"
+          eType="#//description/LabeledValue" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" lowerBound="1"
+          eType="#//description/LabeledValue"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DescriptionElement" abstract="true"
+        eSuperTypes="mlcore.ecore#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="descriptionStyle" upperBound="-1"
+          eType="#//description/Style" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="mlinfra.ecore#//ParameterizedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operationkind" lowerBound="1"
+          eType="#//description/OperationKind" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+          eType="#//description/ConfigurationOption"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="readonlyOptions" upperBound="-1"
+          eType="#//description/ConfigurationOption"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OperationKind" eSuperTypes="#//description/DescriptionElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageURL" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Catalog" eSuperTypes="mlinfra.ecore#//IdentifiedElement">
+      <eOperations name="getOperation" eType="#//description/Operation">
+        <eParameters name="kind" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+          eType="#//description/Operation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+          eType="#//description/ConfigurationOption" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LabeledValue" eSuperTypes="mlinfra.ecore#//Value">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Style" eSuperTypes="mlinfra.ecore#//IdentifiedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontStyle" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

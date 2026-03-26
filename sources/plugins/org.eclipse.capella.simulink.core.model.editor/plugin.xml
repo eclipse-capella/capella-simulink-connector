@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+  Copyright (c) 2020, 2026 THALES GLOBAL SERVICES.
+  
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Contributors:
+       Thales - initial API and implementation
+-->
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated mlcore -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.capella.simulink.core.model.mlcore.presentation.MLCoreModelWizardID"
+            name="%_UI_MLCoreModelWizard_label"
+            class="org.eclipse.capella.simulink.core.model.mlcore.presentation.MLCoreModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MLCoreModelFile.gif">
+         <description>%_UI_MLCoreModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated mlcore -->
+      <editor
+            id="org.eclipse.capella.simulink.core.model.mlcore.presentation.MLCoreEditorID"
+            name="%_UI_MLCoreEditor_label"
+            icon="icons/full/obj16/MLCoreModelFile.gif"
+            extensions="mlcore"
+            class="org.eclipse.capella.simulink.core.model.mlcore.presentation.MLCoreEditor"
+            contributorClass="org.eclipse.capella.simulink.core.model.mlcore.presentation.MLCoreActionBarContributor">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated mloperation -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.capella.simulink.core.model.mloperation.presentation.MloperationModelWizardID"
+            name="%_UI_MloperationModelWizard_label"
+            class="org.eclipse.capella.simulink.core.model.mloperation.presentation.MloperationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MloperationModelFile.gif">
+         <description>%_UI_MloperationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated mloperation -->
+      <editor
+            id="org.eclipse.capella.simulink.core.model.mloperation.presentation.MloperationEditorID"
+            name="%_UI_MloperationEditor_label"
+            icon="icons/full/obj16/MloperationModelFile.gif"
+            extensions="mloperation"
+            class="org.eclipse.capella.simulink.core.model.mloperation.presentation.MloperationEditor"
+            contributorClass="org.eclipse.capella.simulink.core.model.mloperation.presentation.MloperationActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated mloperation -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.capella.simulink.core.model.mloperation.description.presentation.DescriptionModelWizardID"
+            name="%_UI_DescriptionModelWizard_label"
+            class="org.eclipse.capella.simulink.core.model.mloperation.description.presentation.DescriptionModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DescriptionModelFile.gif">
+         <description>%_UI_DescriptionModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated mloperation -->
+      <editor
+            id="org.eclipse.capella.simulink.core.model.mloperation.description.presentation.DescriptionEditorID"
+            name="%_UI_DescriptionEditor_label"
+            icon="icons/full/obj16/DescriptionModelFile.gif"
+            extensions="mldescription"
+            class="org.eclipse.capella.simulink.core.model.mloperation.description.presentation.DescriptionEditor"
+            contributorClass="org.eclipse.capella.simulink.core.model.mloperation.description.presentation.DescriptionActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

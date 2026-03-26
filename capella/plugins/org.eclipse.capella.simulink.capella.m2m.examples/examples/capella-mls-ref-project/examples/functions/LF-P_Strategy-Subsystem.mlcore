@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.capella.simulink.core:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.capella.simulink.core="http://www.eclipse.org/capella/simulink/core/1.0" id="10b4b7c0-4259-4043-9fb7-df6c54e941e2" name="capella-mls-ref-project">
+  <systems id="397e2415-4362-4c4e-b030-323af42e636b" name="LF-P">
+    <ports id="_sVlFYJxwEeuSIZDDIqfdxQ" name="EN_LF-P" description="Mode 1, Mode 3, Mode 2" kind="Enable"/>
+    <ports id="_sVlFZJxwEeuSIZDDIqfdxQ" name="EN_LF-C-Sys (LF-C-Sys)" description="S1/3, S1/2, S1/1"/>
+    <ports id="_sVlFaJxwEeuSIZDDIqfdxQ" name="FIP 1 (LF-C-Sys)" index="2"/>
+    <ports id="_sVlFbJxwEeuSIZDDIqfdxQ" name="FOP 1 (LF-C-Sys)" kind="Outport"/>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:Subsystem" id="bec54430-c4d4-474d-8207-a3cab762e3d3" name="LF-C-Sub-Sys" source="CapellaElements/Subsystem/Function">
+      <ports id="_sVlFYpxwEeuSIZDDIqfdxQ" name="EN_LF-C-Sys (LF-C-Sys)" description="S1/3, S1/2, S1/1"/>
+      <ports id="_sVlFZpxwEeuSIZDDIqfdxQ" name="FIP 1 (LF-C-Sys)" index="2"/>
+      <ports id="_sVlFapxwEeuSIZDDIqfdxQ" name="FOP 1 (LF-C-Sys)" kind="Outport"/>
+      <blocks xsi:type="org.eclipse.capella.simulink.core:Subsystem" id="0ec69bf0-125a-4ecd-b56b-b3fc23ca1779" name="LF-C-Sys" source="CapellaElements/Subsystem/Function">
+        <ports id="_sVlFYZxwEeuSIZDDIqfdxQ" name="EN_LF-C-Sys" description="S1/3, S1/2, S1/1" kind="Enable"/>
+        <ports id="99054e02-79fb-48db-8b6d-f08131e8eee2" name="FIP 1"/>
+        <ports id="65bf5d8b-894b-4a86-bca4-c34f378beae7" name="FOP 1" kind="Outport"/>
+      </blocks>
+      <lines id="_sVlFY5xwEeuSIZDDIqfdxQ" source="_sVlFYpxwEeuSIZDDIqfdxQ" target="_sVlFYZxwEeuSIZDDIqfdxQ"/>
+      <lines id="_sVlFZ5xwEeuSIZDDIqfdxQ" source="_sVlFZpxwEeuSIZDDIqfdxQ" target="99054e02-79fb-48db-8b6d-f08131e8eee2"/>
+      <lines id="_sVlFa5xwEeuSIZDDIqfdxQ" source="65bf5d8b-894b-4a86-bca4-c34f378beae7" target="_sVlFapxwEeuSIZDDIqfdxQ"/>
+    </blocks>
+    <lines id="_sVlFZZxwEeuSIZDDIqfdxQ" source="_sVlFZJxwEeuSIZDDIqfdxQ" target="_sVlFYpxwEeuSIZDDIqfdxQ"/>
+    <lines id="_sVlFaZxwEeuSIZDDIqfdxQ" source="_sVlFaJxwEeuSIZDDIqfdxQ" target="_sVlFZpxwEeuSIZDDIqfdxQ"/>
+    <lines id="_sVlFbZxwEeuSIZDDIqfdxQ" source="_sVlFapxwEeuSIZDDIqfdxQ" target="_sVlFbJxwEeuSIZDDIqfdxQ"/>
+  </systems>
+</org.eclipse.capella.simulink.core:Project>

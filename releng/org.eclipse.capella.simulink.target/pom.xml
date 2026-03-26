@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2019, 2026 THALES GLOBAL SERVICES.
+  
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Contributors:
+       Thales - initial API and implementation
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.eclipse.capella</groupId>
+	<artifactId>org.eclipse.capella.simulink.target</artifactId>
+	<version>0.2.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<properties>
+		<tycho.version>4.0.9</tycho.version>
+		<targetPlatform.name>mls_bridge_target.tpd</targetPlatform.name>
+		<converterApplication.name>org.eclipse.cbi.targetplatform.tpd.converter</converterApplication.name>
+	</properties>	
+	
+	<build>
+		<plugins>		
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-eclipse-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<repositories>
+						<repository>
+							<id>eclipse-2023-03</id>
+							<layout>p2</layout>
+							<url>https://download.eclipse.org/releases/2023-03/</url>
+						</repository>
+						<repository>
+							<id>tpd-latest</id>
+							<layout>p2</layout>
+							<url>https://download.eclipse.org/cbi/updates/tpd/nightly/latest</url>
+						</repository>
+					</repositories>
+					<dependencies>
+						<dependency>
+							<artifactId>org.eclipse.cbi.targetplatform.feature</artifactId>
+							<type>eclipse-feature</type>
+						</dependency>
+						<dependency>
+							<artifactId>org.eclipse.equinox.p2.sdk</artifactId>
+							<type>eclipse-feature</type>
+						</dependency>
+					</dependencies>
+					<executionEnvironment>JavaSE-17</executionEnvironment>
+				</configuration>
+				<executions>
+					<execution>
+						<id>generate.target</id>
+						<phase>validate</phase>
+						<configuration>
+							<applicationsArgs>
+								<arg>-application</arg>
+								<arg>${converterApplication.name}</arg>
+								<arg>${targetPlatform.name}</arg>
+							</applicationsArgs>
+						</configuration>
+						<goals>
+							<goal>eclipse-run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

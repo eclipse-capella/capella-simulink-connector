@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Known limitations</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-style: normal;
+            line-height: 1.7em;
+            padding: 0.7em;
+        }
+
+        .description {
+            margin-top: 1.3em;
+        }
+
+        .sourceCode {
+            font-family: Consolas, Courier New, monospace;
+        }
+
+        .example {
+            padding-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Known limitations</h1>
+    <p>Known limitations of the connector.</p>
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li>
+                <a href="#missing-features">Features expected but not implemented yet</a>
+            </li>
+            <li>
+                <a href="#unsupported-patterns">Unsupported Capella modeling patterns</a>
+                <ol>
+                    <li>
+                        <a href="#fe-name">Functional Exchanges with the same name in a given ARCADIA perspective</a>
+                    </li>
+                    <li>
+                        <a href="#fun-subsystem-ref">Functions cannot be transformed as Subsystem Reference</a>
+                    </li>
+                    <li>
+                        <a href="#port-names">Two or more ports end-up to have the same name</a>
+                    </li>
+                    <li>
+                        <a href="#multiple-fe-out-port">Multiple Functional Exchanges goes out of an "Out Flow Port"</a>
+                    </li>
+                    <li>
+                        <a href="#multiple-fe-in-port">Multiple Functional Exchanges goes in of an "In Flow Port"</a>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+    <div class="content">
+        <h2 class='S5' id='missing-features'>
+            <span>Features expected but not implemented yet</span>
+        </h2>
+        <p>Below is a list of needs that are identified but not yet implemented.</p>
+        <ul>
+            <li>Not possible to save and load transformation.</li>
+            <li>Not possible to set the name and the location of the <span class="sourceCode">mlcore</span> file before
+                its
+                creation.</li>
+            <li>No existing Capella model validation rule to prevent transformation errors.</li>
+        </ul>
+        <h2 id="unsupported-patterns">Unsupported or limited support of Capella modeling patterns</h2>
+        <h3 id="fe-name">Functional Exchanges with the same name in a given ARCADIA perspective</h3>
+        <p>
+            This situation leads to a name conflict in the data dictionary storing the bus definitions for Functional
+            Exchanges.
+            If this occurs, the bus definitions will be erased one after the others and only the last one created will
+            remain.
+        </p>
+        <p>It is highly recommended to avoid such situation by uniquely naming the Functional Exchanges.</p>
+        <h3 id="fun-subsystem-ref">Functions cannot be transformed as <em>Subsystem Reference</em>
+        </h3>
+        <p>The connector does not implement this option.</p>
+        <h3 id="port-names">Two or more ports end-up to have the same name</h3>
+        <p>
+            The transformation adds a suffix <span class="sourceCode">"_N"</span> to the name, where <span
+                class="sourceCode">"N"</span> is an integer number that is incremented from 1 to 9.<br />
+            The first port created is not suffixed.<br />
+            The next ones are suffixed.
+        </p>
+        <h3 id="multiple-fe-out-port">Multiple Functional Exchanges goes out of an "Out Flow Port"</h3>
+        <ul>
+            <li>
+                <u>Data typing conflict:</u>
+                if the Functional Exchanges carry exactly the same Exchange Items, then there is no data type conflict
+                and the
+                bridge can route the Functional Exchanges from the same source port to different destination port.
+                If the Functional Exchanges carry different Exchange Items then there will be a data type mismatch
+                between what
+                the consuming function needs and the Functional Exchange bus definition.
+            </li>
+            <li>
+                <u>Naming conflict:</u>
+                If the Functional Exchanges are named different, then one of this name will be used to name the port if
+                the port
+                naming option defines the Functional Exchange name to be used as port name.
+            </li>
+        </ul>
+        <h3 id="multiple-fe-in-port">Multiple Functional Exchanges goes in of an "In Flow Port"</h3>
+        <p>
+            As many Inports as incoming Functional Exchanges are created.
+            Hence, there is a mismatch regarding the number of function inports between Capella and Simulink®.
+        </p>
+    </div>
+</body>
+
+</html>

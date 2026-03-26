@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.capella.simulink.core:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.capella.simulink.core="http://www.eclipse.org/capella/simulink/core/1.0" id="992a7205-c032-4ebb-bdb7-d4a0375ab3d1" name="capella-mls-ref-project">
+  <systems id="01c0e4de-de88-46ca-876c-18e8ce70398f" name="LF1-3"/>
+  <systems id="3f35fb21-0b5f-4e8d-8866-56579ed5ffe4" name="LF2">
+    <ports id="_c1ATcJxwEeuSIZDDIqfdxQ" name="EN_LF2" description="S1/1, S1/2, S1/3, Mode 1, Mode 2, Mode 3" kind="Enable"/>
+    <ports id="5b468c4e-521b-4104-9e7a-19d00d17add7" name="FIP 1"/>
+    <ports id="3df62d06-aedc-4ef9-8ddc-f8bf9d99a2d6" name="FIP 2" index="2"/>
+    <ports id="3c370d81-9127-4f1b-9f76-238d61b38746" name="FIP 3" index="3"/>
+    <ports id="e510f314-2567-49f6-9314-5b297ca3eaa6" name="FIP 4" index="4"/>
+    <ports id="02492d5a-45b9-45d7-b5fd-bb45035babba" name="FOP 2" kind="Outport"/>
+    <ports id="5de331d4-1a90-402a-932a-d96954393b9a" name="FOP 3" kind="Outport" index="2"/>
+    <ports id="ea396462-5b05-4851-8aac-20dd5d4f9ea3" name="FOP 4" kind="Outport" index="3"/>
+  </systems>
+  <systems id="675bd1e3-2398-44a8-8a49-452ac5303852" name="LF3-1">
+    <ports id="0412cfe6-e5d5-46d2-9388-a9591ea65561" name="FIP 1"/>
+    <ports id="e676cc77-bc52-49c4-b006-aaf16acf5afa" name="FIP 2" index="2"/>
+    <ports id="74053a92-51e0-4a17-afc4-bc9e0f42ddf0" name="FIP 3" index="3"/>
+    <ports id="5217fb08-891d-4097-b53e-fe8239c5da0a" name="FIP 4" index="4"/>
+    <ports id="08ce47fc-9cb6-4b58-8f2f-9d510080caf0" name="FIP 5" index="5"/>
+    <ports id="99c785cf-7082-4c9b-973c-5d984c3169b8" name="FOP 1" kind="Outport"/>
+    <ports id="26e25132-0ed1-4c9d-a5f0-4db4f3d7c579" name="FOP 2" kind="Outport" index="2"/>
+    <ports id="fca60a25-db54-4928-8c57-673f0f885872" name="FOP 3" kind="Outport" index="3"/>
+    <ports id="03a4d3aa-d539-4291-85f9-e0d4c4fa6a86" name="FOP 4" kind="Outport" index="4"/>
+    <ports id="7f849f08-70fa-44a9-abcc-38fcc99b1257" name="FOP 5" kind="Outport" index="5"/>
+  </systems>
+  <systems id="1c8ae3c8-cd0d-48cf-a7d0-bd41185557ab" name="AF4">
+    <ports id="7d244af5-41b1-4bc2-9b27-efe13c88b954" name="FIP 1"/>
+    <ports id="e9cb7108-6ef4-446a-a51d-ba428c6b844e" name="FIP 2" index="2"/>
+    <ports id="280a62dc-6630-4145-9211-0cde7fd51523" name="FOP 1" kind="Outport"/>
+    <ports id="762e5d54-15de-423d-98d7-2ce8344e7a51" name="FOP 2" kind="Outport" index="2"/>
+  </systems>
+  <systems id="397e2415-4362-4c4e-b030-323af42e636b" name="LF-P">
+    <ports id="_c1ATcZxwEeuSIZDDIqfdxQ" name="EN_LF-P" description="Mode 1, Mode 3, Mode 2" kind="Enable"/>
+    <ports id="_c1CvspxwEeuSIZDDIqfdxQ" name="EN_LF-C-Sys (LF-C-Sys)" description="S1/3, S1/2, S1/1"/>
+    <ports id="_c1DWyJxwEeuSIZDDIqfdxQ" name="FIP 1 (LF-C-Sys)" index="2"/>
+    <ports id="_c1DWzJxwEeuSIZDDIqfdxQ" name="FOP 1 (LF-C-Sys)" kind="Outport"/>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:Subsystem" id="bec54430-c4d4-474d-8207-a3cab762e3d3" name="LF-C-Sub-Sys" source="CapellaElements/Subsystem/Function">
+      <ports id="_c1CvsJxwEeuSIZDDIqfdxQ" name="EN_LF-C-Sys (LF-C-Sys)" description="S1/3, S1/2, S1/1"/>
+      <ports id="_c1DWxpxwEeuSIZDDIqfdxQ" name="FIP 1 (LF-C-Sys)" index="2"/>
+      <ports id="_c1DWypxwEeuSIZDDIqfdxQ" name="FOP 1 (LF-C-Sys)" kind="Outport"/>
+      <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="03d28dd3-492f-423f-a1a2-8799d8097ff3" name="Reference to LF-C-Sys" source="CapellaElements/ModelRef/Model_Function" system="0ec69bf0-125a-4ecd-b56b-b3fc23ca1779"/>
+      <lines id="_c1CvsZxwEeuSIZDDIqfdxQ" source="_c1CvsJxwEeuSIZDDIqfdxQ" target="derived-_c1ATcpxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1DWx5xwEeuSIZDDIqfdxQ" source="_c1DWxpxwEeuSIZDDIqfdxQ" target="derived-edac95de-4701-479f-97c2-8713364aa77e"/>
+      <lines id="_c1DWy5xwEeuSIZDDIqfdxQ" source="derived-8a4fc113-453e-404d-94f6-456d8ed6b666" target="_c1DWypxwEeuSIZDDIqfdxQ"/>
+    </blocks>
+    <lines id="_c1Cvs5xwEeuSIZDDIqfdxQ" source="_c1CvspxwEeuSIZDDIqfdxQ" target="_c1CvsJxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1DWyZxwEeuSIZDDIqfdxQ" source="_c1DWyJxwEeuSIZDDIqfdxQ" target="_c1DWxpxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1DWzZxwEeuSIZDDIqfdxQ" source="_c1DWypxwEeuSIZDDIqfdxQ" target="_c1DWzJxwEeuSIZDDIqfdxQ"/>
+  </systems>
+  <systems id="1e9c22a7-e37f-4fc4-8490-4ff07a0f5797" name="LF1-2-1">
+    <ports id="092136ea-e4d2-4ad1-802a-7977f192d255" name="FOP 3" kind="Outport"/>
+  </systems>
+  <systems id="c12e10dd-43d7-4f32-b2e9-56d9981332f9" name="LF1-2-2">
+    <ports id="eff5f267-45ca-4d22-991c-fcd4a9f97b08" name="FIP 1"/>
+  </systems>
+  <systems id="86e9d41a-f7bc-44c9-8209-3379950fa10d" name="LF1-2-3">
+    <ports id="bd87a5e5-3ffa-4770-a3f2-fbba97b5e5f5" name="FIP 1"/>
+  </systems>
+  <systems id="73828982-04d8-41f7-ba06-2f87472b104e" name="LF1-2-4">
+    <ports id="063d643a-cf34-4dd0-96c6-568c30b95a2e" name="FOP 1" kind="Outport"/>
+  </systems>
+  <systems id="0ec69bf0-125a-4ecd-b56b-b3fc23ca1779" name="LF-C-Sys">
+    <ports id="_c1ATcpxwEeuSIZDDIqfdxQ" name="EN_LF-C-Sys" description="S1/3, S1/2, S1/1" kind="Enable"/>
+    <ports id="edac95de-4701-479f-97c2-8713364aa77e" name="FIP 1"/>
+    <ports id="8a4fc113-453e-404d-94f6-456d8ed6b666" name="FOP 1" kind="Outport"/>
+  </systems>
+  <systems id="45357dd3-b019-4c14-b998-1518f550d08a" name="LF1-1-1-1-1-1">
+    <ports id="_c1BhkJxwEeuSIZDDIqfdxQ" name="EN_LF1-1-1-1-1-1" description="S1, S2, S4, S5, S3" kind="Enable"/>
+    <ports id="02cc4e46-234d-44f3-86fb-68e51a8b9118" name="FIP 1"/>
+    <ports id="8bbbfc8d-0598-4bd7-b089-2767494056bd" name="FIP 2" index="2"/>
+    <ports id="9194975a-a51e-42b1-b27e-b1e6a7bb5d3b" name="FIP 3" index="3"/>
+    <ports id="856a397c-1709-4be3-9135-4325775c610a" name="FOP 1" kind="Outport"/>
+    <ports id="841e5f9f-4e79-44fd-9749-6d30435ce342" name="FOP 2" kind="Outport" index="2"/>
+    <ports id="f8ca8ee4-25e4-452d-8898-20253bbb03ff" name="FOP 3" kind="Outport" index="3"/>
+    <ports id="51356045-d461-4fd8-b72f-25e9f8cf13ce" name="FOP 4" kind="Outport" index="4"/>
+  </systems>
+  <systems id="d9baa482-4c23-4953-a0d6-f6973283cb11" name="LF1">
+    <ports id="2888addb-abac-48e7-83be-5e3fc78f52e2" name="FOP 1" kind="Outport"/>
+    <ports id="_c1DWzpxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1)"/>
+    <ports id="_c1DW0JxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1)" kind="Outport" index="2"/>
+    <ports id="_c1DW0pxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1)" kind="Outport" index="3"/>
+    <ports id="_c1DW1JxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-2)" index="2"/>
+    <ports id="_c1DW1pxwEeuSIZDDIqfdxQ" name="FIP 2 (LF1-2)" index="3"/>
+    <ports id="_c1DW2JxwEeuSIZDDIqfdxQ" name="FIP 3 (LF1-2)" index="4"/>
+    <ports id="_c1DW2pxwEeuSIZDDIqfdxQ" name="FIP 4 (LF1-2)" index="5"/>
+    <ports id="_c1DW3JxwEeuSIZDDIqfdxQ" name="FIP 5 (LF1-2)" index="6"/>
+    <ports id="_c1D90pxwEeuSIZDDIqfdxQ" name="FOP 3 (LF1-2-1)" kind="Outport" index="4"/>
+    <ports id="_c1D91pxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-2-2)" index="7"/>
+    <ports id="_c1D92pxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-2-3)" index="8"/>
+    <ports id="_c1D93pxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-2-4)" kind="Outport" index="5"/>
+    <ports id="_c1D94pxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1)" index="9"/>
+    <ports id="_c1D95pxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1)" kind="Outport" index="6"/>
+    <ports id="_c1D96pxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1)" kind="Outport" index="7"/>
+    <ports id="_c1D98JxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1)" index="10"/>
+    <ports id="_c1D99pxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1)" kind="Outport" index="8"/>
+    <ports id="_c1D9_JxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1)" kind="Outport" index="9"/>
+    <ports id="_c1D-BpxwEeuSIZDDIqfdxQ" name="EN_LF1-1-1-1-1-1 (LF1-1-1-1-1-1)" description="S1, S2, S4, S5, S3" index="11"/>
+    <ports id="_c1Ek5pxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1-1)" index="12"/>
+    <ports id="_c1Ek7pxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1-1)" kind="Outport" index="10"/>
+    <ports id="_c1Ek9pxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1-1)" kind="Outport" index="11"/>
+    <ports id="_c1ElAJxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1-1-1)" index="13"/>
+    <ports id="_c1ElCpxwEeuSIZDDIqfdxQ" name="FIP 2 (LF1-1-1-1-1-1)" index="14"/>
+    <ports id="_c1ElFJxwEeuSIZDDIqfdxQ" name="FIP 3 (LF1-1-1-1-1-1)" index="15"/>
+    <ports id="_c1ElHpxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1-1-1)" kind="Outport" index="12"/>
+    <ports id="_c1FL-ZxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1-1-1)" kind="Outport" index="13"/>
+    <ports id="_c1FMA5xwEeuSIZDDIqfdxQ" name="FOP 3 (LF1-1-1-1-1-1)" kind="Outport" index="14"/>
+    <ports id="_c1FMDZxwEeuSIZDDIqfdxQ" name="FOP 4 (LF1-1-1-1-1-1)" kind="Outport" index="15"/>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="cdb7f465-f158-44b2-92b3-f79515b2a92e" name="Reference to LF1-3" source="CapellaElements/ModelRef/Model_Function" system="01c0e4de-de88-46ca-876c-18e8ce70398f"/>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:Subsystem" id="fa57a373-1616-4637-8862-c5c8139e2c56" name="LF1-1" source="CapellaElements/Subsystem/Function">
+      <ports id="31241dc4-47c3-4b91-b21a-96ff2adaccd5" name="FIP 1"/>
+      <ports id="74b287cf-2b72-4ae2-b136-235f2d5e2544" name="FOP 1" kind="Outport"/>
+      <ports id="7384284c-5002-4133-91b4-0659f1668fcd" name="FOP 2" kind="Outport" index="2"/>
+      <ports id="_c1D94JxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1)" index="2"/>
+      <ports id="_c1D95JxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1)" kind="Outport" index="3"/>
+      <ports id="_c1D96JxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1)" kind="Outport" index="4"/>
+      <ports id="_c1D97pxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1)" index="3"/>
+      <ports id="_c1D99JxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1)" kind="Outport" index="5"/>
+      <ports id="_c1D9-pxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1)" kind="Outport" index="6"/>
+      <ports id="_c1D-BJxwEeuSIZDDIqfdxQ" name="EN_LF1-1-1-1-1-1 (LF1-1-1-1-1-1)" description="S1, S2, S4, S5, S3" index="4"/>
+      <ports id="_c1Ek5JxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1-1)" index="5"/>
+      <ports id="_c1Ek7JxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1-1)" kind="Outport" index="7"/>
+      <ports id="_c1Ek9JxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1-1)" kind="Outport" index="8"/>
+      <ports id="_c1Ek_pxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1-1-1)" index="6"/>
+      <ports id="_c1ElCJxwEeuSIZDDIqfdxQ" name="FIP 2 (LF1-1-1-1-1-1)" index="7"/>
+      <ports id="_c1ElEpxwEeuSIZDDIqfdxQ" name="FIP 3 (LF1-1-1-1-1-1)" index="8"/>
+      <ports id="_c1ElHJxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1-1-1)" kind="Outport" index="9"/>
+      <ports id="_c1FL95xwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1-1-1)" kind="Outport" index="10"/>
+      <ports id="_c1FMAZxwEeuSIZDDIqfdxQ" name="FOP 3 (LF1-1-1-1-1-1)" kind="Outport" index="11"/>
+      <ports id="_c1FMC5xwEeuSIZDDIqfdxQ" name="FOP 4 (LF1-1-1-1-1-1)" kind="Outport" index="12"/>
+      <blocks xsi:type="org.eclipse.capella.simulink.core:Subsystem" id="916333a4-ba61-4a65-8de6-475e30fc78e0" name="LF1-1-1" source="CapellaElements/Subsystem/Function">
+        <ports id="c0253845-2086-4e76-bc3f-1e4eac468715" name="FIP 1"/>
+        <ports id="adb040f8-6512-46e5-8195-4f2e7c5e6847" name="FOP 1" kind="Outport"/>
+        <ports id="513976b1-e6fe-451f-80f0-18a86f60607b" name="FOP 2" kind="Outport" index="2"/>
+        <ports id="_c1D97JxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1)" index="2"/>
+        <ports id="_c1D98pxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1)" kind="Outport" index="3"/>
+        <ports id="_c1D9-JxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1)" kind="Outport" index="4"/>
+        <ports id="_c1D-ApxwEeuSIZDDIqfdxQ" name="EN_LF1-1-1-1-1-1 (LF1-1-1-1-1-1)" description="S1, S2, S4, S5, S3" index="3"/>
+        <ports id="_c1Ek4pxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1-1)" index="4"/>
+        <ports id="_c1Ek6pxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1-1)" kind="Outport" index="5"/>
+        <ports id="_c1Ek8pxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1-1)" kind="Outport" index="6"/>
+        <ports id="_c1Ek_JxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1-1-1)" index="5"/>
+        <ports id="_c1ElBpxwEeuSIZDDIqfdxQ" name="FIP 2 (LF1-1-1-1-1-1)" index="6"/>
+        <ports id="_c1ElEJxwEeuSIZDDIqfdxQ" name="FIP 3 (LF1-1-1-1-1-1)" index="7"/>
+        <ports id="_c1ElGpxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1-1-1)" kind="Outport" index="7"/>
+        <ports id="_c1FL9ZxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1-1-1)" kind="Outport" index="8"/>
+        <ports id="_c1FL_5xwEeuSIZDDIqfdxQ" name="FOP 3 (LF1-1-1-1-1-1)" kind="Outport" index="9"/>
+        <ports id="_c1FMCZxwEeuSIZDDIqfdxQ" name="FOP 4 (LF1-1-1-1-1-1)" kind="Outport" index="10"/>
+        <blocks xsi:type="org.eclipse.capella.simulink.core:Subsystem" id="8a92beb3-863d-4e93-9062-80c2e3744821" name="LF1-1-1-1" source="CapellaElements/Subsystem/Function">
+          <ports id="12c9b30d-816a-4904-a118-caa7da0d4b59" name="FIP 1"/>
+          <ports id="e022e0a3-3600-441b-833a-384905c51f2a" name="FOP 1" kind="Outport"/>
+          <ports id="2e923f57-f22f-4ba7-9e89-32741dcc3bf2" name="FOP 2" kind="Outport" index="2"/>
+          <ports id="_c1D-AJxwEeuSIZDDIqfdxQ" name="EN_LF1-1-1-1-1-1 (LF1-1-1-1-1-1)" description="S1, S2, S4, S5, S3" index="2"/>
+          <ports id="_c1Ek4JxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1-1)" index="3"/>
+          <ports id="_c1Ek6JxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1-1)" kind="Outport" index="3"/>
+          <ports id="_c1Ek8JxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1-1)" kind="Outport" index="4"/>
+          <ports id="_c1Ek-pxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1-1-1)" index="4"/>
+          <ports id="_c1ElBJxwEeuSIZDDIqfdxQ" name="FIP 2 (LF1-1-1-1-1-1)" index="5"/>
+          <ports id="_c1ElDpxwEeuSIZDDIqfdxQ" name="FIP 3 (LF1-1-1-1-1-1)" index="6"/>
+          <ports id="_c1ElGJxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1-1-1)" kind="Outport" index="5"/>
+          <ports id="_c1FL85xwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1-1-1)" kind="Outport" index="6"/>
+          <ports id="_c1FL_ZxwEeuSIZDDIqfdxQ" name="FOP 3 (LF1-1-1-1-1-1)" kind="Outport" index="7"/>
+          <ports id="_c1FMB5xwEeuSIZDDIqfdxQ" name="FOP 4 (LF1-1-1-1-1-1)" kind="Outport" index="8"/>
+          <blocks xsi:type="org.eclipse.capella.simulink.core:Subsystem" id="25638c1b-747c-4bf7-b3ec-d8cfe96c1be0" name="LF1-1-1-1-1" source="CapellaElements/Subsystem/Function">
+            <ports id="_c1D9_pxwEeuSIZDDIqfdxQ" name="EN_LF1-1-1-1-1-1 (LF1-1-1-1-1-1)" description="S1, S2, S4, S5, S3"/>
+            <ports id="ca03f212-673f-4df0-8a08-04c888e67b63" name="FIP 1" index="2"/>
+            <ports id="f684d7a7-dd12-416b-bc58-fcc6d9e17ba5" name="FOP 1" kind="Outport"/>
+            <ports id="d13705d9-0557-49d4-8a15-fa0e1dea8550" name="FOP 2" kind="Outport" index="2"/>
+            <ports id="_c1Ek-JxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-1-1-1-1-1)" index="3"/>
+            <ports id="_c1ElApxwEeuSIZDDIqfdxQ" name="FIP 2 (LF1-1-1-1-1-1)" index="4"/>
+            <ports id="_c1ElDJxwEeuSIZDDIqfdxQ" name="FIP 3 (LF1-1-1-1-1-1)" index="5"/>
+            <ports id="_c1ElFpxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-1-1-1-1-1)" kind="Outport" index="3"/>
+            <ports id="_c1FL8ZxwEeuSIZDDIqfdxQ" name="FOP 2 (LF1-1-1-1-1-1)" kind="Outport" index="4"/>
+            <ports id="_c1FL-5xwEeuSIZDDIqfdxQ" name="FOP 3 (LF1-1-1-1-1-1)" kind="Outport" index="5"/>
+            <ports id="_c1FMBZxwEeuSIZDDIqfdxQ" name="FOP 4 (LF1-1-1-1-1-1)" kind="Outport" index="6"/>
+            <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="23b4622a-3add-4350-b0e7-8f78ee34d926" name="Reference to LF1-1-1-1-1-1" source="CapellaElements/ModelRef/Model_Function" system="45357dd3-b019-4c14-b998-1518f550d08a"/>
+            <lines id="_c1D9_5xwEeuSIZDDIqfdxQ" source="_c1D9_pxwEeuSIZDDIqfdxQ" target="derived-_c1BhkJxwEeuSIZDDIqfdxQ"/>
+            <lines id="_c1Ek-ZxwEeuSIZDDIqfdxQ" source="_c1Ek-JxwEeuSIZDDIqfdxQ" target="derived-02cc4e46-234d-44f3-86fb-68e51a8b9118"/>
+            <lines id="_c1ElA5xwEeuSIZDDIqfdxQ" source="_c1ElApxwEeuSIZDDIqfdxQ" target="derived-8bbbfc8d-0598-4bd7-b089-2767494056bd"/>
+            <lines id="_c1ElDZxwEeuSIZDDIqfdxQ" source="_c1ElDJxwEeuSIZDDIqfdxQ" target="derived-9194975a-a51e-42b1-b27e-b1e6a7bb5d3b"/>
+            <lines id="_c1ElF5xwEeuSIZDDIqfdxQ" source="derived-856a397c-1709-4be3-9135-4325775c610a" target="_c1ElFpxwEeuSIZDDIqfdxQ"/>
+            <lines id="_c1FL8pxwEeuSIZDDIqfdxQ" source="derived-841e5f9f-4e79-44fd-9749-6d30435ce342" target="_c1FL8ZxwEeuSIZDDIqfdxQ"/>
+            <lines id="_c1FL_JxwEeuSIZDDIqfdxQ" source="derived-f8ca8ee4-25e4-452d-8898-20253bbb03ff" target="_c1FL-5xwEeuSIZDDIqfdxQ"/>
+            <lines id="_c1FMBpxwEeuSIZDDIqfdxQ" source="derived-51356045-d461-4fd8-b72f-25e9f8cf13ce" target="_c1FMBZxwEeuSIZDDIqfdxQ"/>
+          </blocks>
+          <lines id="_c1D-AZxwEeuSIZDDIqfdxQ" source="_c1D-AJxwEeuSIZDDIqfdxQ" target="_c1D9_pxwEeuSIZDDIqfdxQ"/>
+          <lines id="_c1Ek4ZxwEeuSIZDDIqfdxQ" source="_c1Ek4JxwEeuSIZDDIqfdxQ" target="ca03f212-673f-4df0-8a08-04c888e67b63"/>
+          <lines id="_c1Ek6ZxwEeuSIZDDIqfdxQ" source="f684d7a7-dd12-416b-bc58-fcc6d9e17ba5" target="_c1Ek6JxwEeuSIZDDIqfdxQ"/>
+          <lines id="_c1Ek8ZxwEeuSIZDDIqfdxQ" source="d13705d9-0557-49d4-8a15-fa0e1dea8550" target="_c1Ek8JxwEeuSIZDDIqfdxQ"/>
+          <lines id="_c1Ek-5xwEeuSIZDDIqfdxQ" source="_c1Ek-pxwEeuSIZDDIqfdxQ" target="_c1Ek-JxwEeuSIZDDIqfdxQ"/>
+          <lines id="_c1ElBZxwEeuSIZDDIqfdxQ" source="_c1ElBJxwEeuSIZDDIqfdxQ" target="_c1ElApxwEeuSIZDDIqfdxQ"/>
+          <lines id="_c1ElD5xwEeuSIZDDIqfdxQ" source="_c1ElDpxwEeuSIZDDIqfdxQ" target="_c1ElDJxwEeuSIZDDIqfdxQ"/>
+          <lines id="_c1ElGZxwEeuSIZDDIqfdxQ" source="_c1ElFpxwEeuSIZDDIqfdxQ" target="_c1ElGJxwEeuSIZDDIqfdxQ"/>
+          <lines id="_c1FL9JxwEeuSIZDDIqfdxQ" source="_c1FL8ZxwEeuSIZDDIqfdxQ" target="_c1FL85xwEeuSIZDDIqfdxQ"/>
+          <lines id="_c1FL_pxwEeuSIZDDIqfdxQ" source="_c1FL-5xwEeuSIZDDIqfdxQ" target="_c1FL_ZxwEeuSIZDDIqfdxQ"/>
+          <lines id="_c1FMCJxwEeuSIZDDIqfdxQ" source="_c1FMBZxwEeuSIZDDIqfdxQ" target="_c1FMB5xwEeuSIZDDIqfdxQ"/>
+        </blocks>
+        <lines id="_c1D97ZxwEeuSIZDDIqfdxQ" source="_c1D97JxwEeuSIZDDIqfdxQ" target="12c9b30d-816a-4904-a118-caa7da0d4b59"/>
+        <lines id="_c1D985xwEeuSIZDDIqfdxQ" source="e022e0a3-3600-441b-833a-384905c51f2a" target="_c1D98pxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1D9-ZxwEeuSIZDDIqfdxQ" source="2e923f57-f22f-4ba7-9e89-32741dcc3bf2" target="_c1D9-JxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1D-A5xwEeuSIZDDIqfdxQ" source="_c1D-ApxwEeuSIZDDIqfdxQ" target="_c1D-AJxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1Ek45xwEeuSIZDDIqfdxQ" source="_c1Ek4pxwEeuSIZDDIqfdxQ" target="_c1Ek4JxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1Ek65xwEeuSIZDDIqfdxQ" source="_c1Ek6JxwEeuSIZDDIqfdxQ" target="_c1Ek6pxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1Ek85xwEeuSIZDDIqfdxQ" source="_c1Ek8JxwEeuSIZDDIqfdxQ" target="_c1Ek8pxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1Ek_ZxwEeuSIZDDIqfdxQ" source="_c1Ek_JxwEeuSIZDDIqfdxQ" target="_c1Ek-pxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1ElB5xwEeuSIZDDIqfdxQ" source="_c1ElBpxwEeuSIZDDIqfdxQ" target="_c1ElBJxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1ElEZxwEeuSIZDDIqfdxQ" source="_c1ElEJxwEeuSIZDDIqfdxQ" target="_c1ElDpxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1ElG5xwEeuSIZDDIqfdxQ" source="_c1ElGJxwEeuSIZDDIqfdxQ" target="_c1ElGpxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1FL9pxwEeuSIZDDIqfdxQ" source="_c1FL85xwEeuSIZDDIqfdxQ" target="_c1FL9ZxwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1FMAJxwEeuSIZDDIqfdxQ" source="_c1FL_ZxwEeuSIZDDIqfdxQ" target="_c1FL_5xwEeuSIZDDIqfdxQ"/>
+        <lines id="_c1FMCpxwEeuSIZDDIqfdxQ" source="_c1FMB5xwEeuSIZDDIqfdxQ" target="_c1FMCZxwEeuSIZDDIqfdxQ"/>
+      </blocks>
+      <lines id="_c1D94ZxwEeuSIZDDIqfdxQ" source="_c1D94JxwEeuSIZDDIqfdxQ" target="c0253845-2086-4e76-bc3f-1e4eac468715"/>
+      <lines id="_c1D95ZxwEeuSIZDDIqfdxQ" source="adb040f8-6512-46e5-8195-4f2e7c5e6847" target="_c1D95JxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1D96ZxwEeuSIZDDIqfdxQ" source="513976b1-e6fe-451f-80f0-18a86f60607b" target="_c1D96JxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1D975xwEeuSIZDDIqfdxQ" source="_c1D97pxwEeuSIZDDIqfdxQ" target="_c1D97JxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1D99ZxwEeuSIZDDIqfdxQ" source="_c1D98pxwEeuSIZDDIqfdxQ" target="_c1D99JxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1D9-5xwEeuSIZDDIqfdxQ" source="_c1D9-JxwEeuSIZDDIqfdxQ" target="_c1D9-pxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1D-BZxwEeuSIZDDIqfdxQ" source="_c1D-BJxwEeuSIZDDIqfdxQ" target="_c1D-ApxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1Ek5ZxwEeuSIZDDIqfdxQ" source="_c1Ek5JxwEeuSIZDDIqfdxQ" target="_c1Ek4pxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1Ek7ZxwEeuSIZDDIqfdxQ" source="_c1Ek6pxwEeuSIZDDIqfdxQ" target="_c1Ek7JxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1Ek9ZxwEeuSIZDDIqfdxQ" source="_c1Ek8pxwEeuSIZDDIqfdxQ" target="_c1Ek9JxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1Ek_5xwEeuSIZDDIqfdxQ" source="_c1Ek_pxwEeuSIZDDIqfdxQ" target="_c1Ek_JxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1ElCZxwEeuSIZDDIqfdxQ" source="_c1ElCJxwEeuSIZDDIqfdxQ" target="_c1ElBpxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1ElE5xwEeuSIZDDIqfdxQ" source="_c1ElEpxwEeuSIZDDIqfdxQ" target="_c1ElEJxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1ElHZxwEeuSIZDDIqfdxQ" source="_c1ElGpxwEeuSIZDDIqfdxQ" target="_c1ElHJxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1FL-JxwEeuSIZDDIqfdxQ" source="_c1FL9ZxwEeuSIZDDIqfdxQ" target="_c1FL95xwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1FMApxwEeuSIZDDIqfdxQ" source="_c1FL_5xwEeuSIZDDIqfdxQ" target="_c1FMAZxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1FMDJxwEeuSIZDDIqfdxQ" source="_c1FMCZxwEeuSIZDDIqfdxQ" target="_c1FMC5xwEeuSIZDDIqfdxQ"/>
+    </blocks>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:Subsystem" id="df7ddb63-f20c-4d35-986d-61e0e9dd0b55" name="LF1-2" source="CapellaElements/Subsystem/Function">
+      <ports id="032d84ea-d0df-48cc-a608-e3f729b124e4" name="FIP 1"/>
+      <ports id="e2645f6d-dc95-45ad-b965-c81e5d9059a7" name="FIP 2" index="2"/>
+      <ports id="50fbd747-9708-4303-aff6-ccfd10b093a0" name="FIP 3" index="3"/>
+      <ports id="bd82c563-c982-4031-a862-e3bdd1a754c5" name="FIP 4" index="4"/>
+      <ports id="703462ef-5a42-4f04-bd2d-b763cd0fd02d" name="FIP 5" index="5"/>
+      <ports id="_c1D90JxwEeuSIZDDIqfdxQ" name="FOP 3 (LF1-2-1)" kind="Outport"/>
+      <ports id="_c1D91JxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-2-2)" index="6"/>
+      <ports id="_c1D92JxwEeuSIZDDIqfdxQ" name="FIP 1 (LF1-2-3)" index="7"/>
+      <ports id="_c1D93JxwEeuSIZDDIqfdxQ" name="FOP 1 (LF1-2-4)" kind="Outport" index="2"/>
+      <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="5dc5e0cb-b1a5-47c8-a224-7a6af2a9ff72" name="Reference to LF1-2-1" source="CapellaElements/ModelRef/Model_Function" system="1e9c22a7-e37f-4fc4-8490-4ff07a0f5797"/>
+      <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="f0bfb5ab-ed2a-49cd-8f58-f7332fc1e44d" name="Reference to LF1-2-2" source="CapellaElements/ModelRef/Model_Function" system="c12e10dd-43d7-4f32-b2e9-56d9981332f9"/>
+      <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="542a9d48-2e4a-4290-8f89-855f39ba4aa3" name="Reference to LF1-2-3" source="CapellaElements/ModelRef/Model_Function" system="86e9d41a-f7bc-44c9-8209-3379950fa10d"/>
+      <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="4af47fb7-7d13-49b2-8c66-cbe1d6177405" name="Reference to LF1-2-4" source="CapellaElements/ModelRef/Model_Function" system="73828982-04d8-41f7-ba06-2f87472b104e"/>
+      <lines id="_c1D90ZxwEeuSIZDDIqfdxQ" source="derived-092136ea-e4d2-4ad1-802a-7977f192d255" target="_c1D90JxwEeuSIZDDIqfdxQ"/>
+      <lines id="_c1D91ZxwEeuSIZDDIqfdxQ" source="_c1D91JxwEeuSIZDDIqfdxQ" target="derived-eff5f267-45ca-4d22-991c-fcd4a9f97b08"/>
+      <lines id="_c1D92ZxwEeuSIZDDIqfdxQ" source="_c1D92JxwEeuSIZDDIqfdxQ" target="derived-bd87a5e5-3ffa-4770-a3f2-fbba97b5e5f5"/>
+      <lines id="_c1D93ZxwEeuSIZDDIqfdxQ" source="derived-063d643a-cf34-4dd0-96c6-568c30b95a2e" target="_c1D93JxwEeuSIZDDIqfdxQ"/>
+    </blocks>
+    <lines id="_c1DWz5xwEeuSIZDDIqfdxQ" source="_c1DWzpxwEeuSIZDDIqfdxQ" target="31241dc4-47c3-4b91-b21a-96ff2adaccd5"/>
+    <lines id="_c1DW0ZxwEeuSIZDDIqfdxQ" source="74b287cf-2b72-4ae2-b136-235f2d5e2544" target="_c1DW0JxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1DW05xwEeuSIZDDIqfdxQ" source="7384284c-5002-4133-91b4-0659f1668fcd" target="_c1DW0pxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1DW1ZxwEeuSIZDDIqfdxQ" source="_c1DW1JxwEeuSIZDDIqfdxQ" target="032d84ea-d0df-48cc-a608-e3f729b124e4"/>
+    <lines id="_c1DW15xwEeuSIZDDIqfdxQ" source="_c1DW1pxwEeuSIZDDIqfdxQ" target="e2645f6d-dc95-45ad-b965-c81e5d9059a7"/>
+    <lines id="_c1DW2ZxwEeuSIZDDIqfdxQ" source="_c1DW2JxwEeuSIZDDIqfdxQ" target="50fbd747-9708-4303-aff6-ccfd10b093a0"/>
+    <lines id="_c1DW25xwEeuSIZDDIqfdxQ" source="_c1DW2pxwEeuSIZDDIqfdxQ" target="bd82c563-c982-4031-a862-e3bdd1a754c5"/>
+    <lines id="_c1DW3ZxwEeuSIZDDIqfdxQ" source="_c1DW3JxwEeuSIZDDIqfdxQ" target="703462ef-5a42-4f04-bd2d-b763cd0fd02d"/>
+    <lines id="_c1D905xwEeuSIZDDIqfdxQ" source="_c1D90JxwEeuSIZDDIqfdxQ" target="_c1D90pxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1D915xwEeuSIZDDIqfdxQ" source="_c1D91pxwEeuSIZDDIqfdxQ" target="_c1D91JxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1D925xwEeuSIZDDIqfdxQ" source="_c1D92pxwEeuSIZDDIqfdxQ" target="_c1D92JxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1D935xwEeuSIZDDIqfdxQ" source="_c1D93JxwEeuSIZDDIqfdxQ" target="_c1D93pxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1D945xwEeuSIZDDIqfdxQ" source="_c1D94pxwEeuSIZDDIqfdxQ" target="_c1D94JxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1D955xwEeuSIZDDIqfdxQ" source="_c1D95JxwEeuSIZDDIqfdxQ" target="_c1D95pxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1D965xwEeuSIZDDIqfdxQ" source="_c1D96JxwEeuSIZDDIqfdxQ" target="_c1D96pxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1D98ZxwEeuSIZDDIqfdxQ" source="_c1D98JxwEeuSIZDDIqfdxQ" target="_c1D97pxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1D995xwEeuSIZDDIqfdxQ" source="_c1D99JxwEeuSIZDDIqfdxQ" target="_c1D99pxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1D9_ZxwEeuSIZDDIqfdxQ" source="_c1D9-pxwEeuSIZDDIqfdxQ" target="_c1D9_JxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1D-B5xwEeuSIZDDIqfdxQ" source="_c1D-BpxwEeuSIZDDIqfdxQ" target="_c1D-BJxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1Ek55xwEeuSIZDDIqfdxQ" source="_c1Ek5pxwEeuSIZDDIqfdxQ" target="_c1Ek5JxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1Ek75xwEeuSIZDDIqfdxQ" source="_c1Ek7JxwEeuSIZDDIqfdxQ" target="_c1Ek7pxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1Ek95xwEeuSIZDDIqfdxQ" source="_c1Ek9JxwEeuSIZDDIqfdxQ" target="_c1Ek9pxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1ElAZxwEeuSIZDDIqfdxQ" source="_c1ElAJxwEeuSIZDDIqfdxQ" target="_c1Ek_pxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1ElC5xwEeuSIZDDIqfdxQ" source="_c1ElCpxwEeuSIZDDIqfdxQ" target="_c1ElCJxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1ElFZxwEeuSIZDDIqfdxQ" source="_c1ElFJxwEeuSIZDDIqfdxQ" target="_c1ElEpxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1FL8JxwEeuSIZDDIqfdxQ" source="_c1ElHJxwEeuSIZDDIqfdxQ" target="_c1ElHpxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1FL-pxwEeuSIZDDIqfdxQ" source="_c1FL95xwEeuSIZDDIqfdxQ" target="_c1FL-ZxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1FMBJxwEeuSIZDDIqfdxQ" source="_c1FMAZxwEeuSIZDDIqfdxQ" target="_c1FMA5xwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1FMDpxwEeuSIZDDIqfdxQ" source="_c1FMC5xwEeuSIZDDIqfdxQ" target="_c1FMDZxwEeuSIZDDIqfdxQ"/>
+  </systems>
+  <systems id="e8558ea0-467c-4490-ad41-beead5fc8e21" name="LF3">
+    <ports id="a98479f5-e754-46f6-82de-ea4534995bb1" name="FIP 1"/>
+    <ports id="74b83cc0-3e85-413f-b36e-91a2b81e25de" name="FOP 2" kind="Outport"/>
+    <ports id="_c1CvtJxwEeuSIZDDIqfdxQ" name="FIP 1 (LF3-1)" index="2"/>
+    <ports id="_c1CvtpxwEeuSIZDDIqfdxQ" name="FIP 2 (LF3-1)" index="3"/>
+    <ports id="_c1CvuJxwEeuSIZDDIqfdxQ" name="FIP 3 (LF3-1)" index="4"/>
+    <ports id="_c1CvupxwEeuSIZDDIqfdxQ" name="FIP 4 (LF3-1)" index="5"/>
+    <ports id="_c1CvvJxwEeuSIZDDIqfdxQ" name="FIP 5 (LF3-1)" index="6"/>
+    <ports id="_c1CvvpxwEeuSIZDDIqfdxQ" name="FOP 1 (LF3-1)" kind="Outport" index="2"/>
+    <ports id="_c1CvwJxwEeuSIZDDIqfdxQ" name="FOP 2 (LF3-1)" kind="Outport" index="3"/>
+    <ports id="_c1DWwJxwEeuSIZDDIqfdxQ" name="FOP 3 (LF3-1)" kind="Outport" index="4"/>
+    <ports id="_c1DWwpxwEeuSIZDDIqfdxQ" name="FOP 4 (LF3-1)" kind="Outport" index="5"/>
+    <ports id="_c1DWxJxwEeuSIZDDIqfdxQ" name="FOP 5 (LF3-1)" kind="Outport" index="6"/>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="823f6227-0d97-41e7-b9c7-5f7ef5daa52f" name="Reference to LF3-1" source="CapellaElements/ModelRef/Model_Function" system="675bd1e3-2398-44a8-8a49-452ac5303852"/>
+    <lines id="_c1CvtZxwEeuSIZDDIqfdxQ" source="_c1CvtJxwEeuSIZDDIqfdxQ" target="derived-0412cfe6-e5d5-46d2-9388-a9591ea65561"/>
+    <lines id="_c1Cvt5xwEeuSIZDDIqfdxQ" source="_c1CvtpxwEeuSIZDDIqfdxQ" target="derived-e676cc77-bc52-49c4-b006-aaf16acf5afa"/>
+    <lines id="_c1CvuZxwEeuSIZDDIqfdxQ" source="_c1CvuJxwEeuSIZDDIqfdxQ" target="derived-74053a92-51e0-4a17-afc4-bc9e0f42ddf0"/>
+    <lines id="_c1Cvu5xwEeuSIZDDIqfdxQ" source="_c1CvupxwEeuSIZDDIqfdxQ" target="derived-5217fb08-891d-4097-b53e-fe8239c5da0a"/>
+    <lines id="_c1CvvZxwEeuSIZDDIqfdxQ" source="_c1CvvJxwEeuSIZDDIqfdxQ" target="derived-08ce47fc-9cb6-4b58-8f2f-9d510080caf0"/>
+    <lines id="_c1Cvv5xwEeuSIZDDIqfdxQ" source="derived-99c785cf-7082-4c9b-973c-5d984c3169b8" target="_c1CvvpxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1CvwZxwEeuSIZDDIqfdxQ" source="derived-26e25132-0ed1-4c9d-a5f0-4db4f3d7c579" target="_c1CvwJxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1DWwZxwEeuSIZDDIqfdxQ" source="derived-fca60a25-db54-4928-8c57-673f0f885872" target="_c1DWwJxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1DWw5xwEeuSIZDDIqfdxQ" source="derived-03a4d3aa-d539-4291-85f9-e0d4c4fa6a86" target="_c1DWwpxwEeuSIZDDIqfdxQ"/>
+    <lines id="_c1DWxZxwEeuSIZDDIqfdxQ" source="derived-7f849f08-70fa-44a9-abcc-38fcc99b1257" target="_c1DWxJxwEeuSIZDDIqfdxQ"/>
+  </systems>
+</org.eclipse.capella.simulink.core:Project>

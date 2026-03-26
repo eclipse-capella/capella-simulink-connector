@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.capella.simulink.core:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.capella.simulink.core="http://www.eclipse.org/capella/simulink/core/1.0" xmlns:org.eclipse.capella.simulink.infra="http://www.eclipse.org/capella/simulink/infra/1.0" id="21342c34-f73f-449b-bbe0-a8bc3bae756a" name="capella-mls-ref-project">
+  <systems id="ebe5abe7-ddfa-4705-8cb0-c0534b7e548a" name="FC-1">
+    <parameters id="8c1efaac-1462-4670-946e-a98ca3d9cd4c" key="level">
+      <value xsi:type="org.eclipse.capella.simulink.infra:PrimitiveValue" id="66e83f35-5551-4448-8b76-ff5f6fe8e532" specification="LA"/>
+    </parameters>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="274f466a-5902-4aea-bdae-824b78d9fe07" name="Reference to LF1-1-1-1-1-1" source="CapellaElements/ModelRef/Model_Function" system="45357dd3-b019-4c14-b998-1518f550d08a"/>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="570296dd-7e5d-429b-a1fa-9f44300c56fc" name="Reference to LF3-1" source="CapellaElements/ModelRef/Model_Function" system="675bd1e3-2398-44a8-8a49-452ac5303852"/>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="7b4d4c68-e4a1-4af5-8ba0-1cb7d4755670" name="Reference to LF1-2-3" source="CapellaElements/ModelRef/Model_Function" system="86e9d41a-f7bc-44c9-8209-3379950fa10d"/>
+    <lines id="d5f2c113-1119-45f7-85a4-04fff8c0a57c" name="LF3-1>LF1-1-1-1-1-1" source="derived-570296dd-7e5d-429b-a1fa-9f44300c56fc--ccb8ca3a-db4f-4d6e-9d16-f06fd4313de5" target="derived-274f466a-5902-4aea-bdae-824b78d9fe07--8254196b-eccb-4744-b382-f88c17b39e82"/>
+    <lines id="b62b8a08-1e43-4add-bd9f-f048d7d352dc" name="LF1-1-1-1-1-1>LF1-2-3" source="derived-274f466a-5902-4aea-bdae-824b78d9fe07--2a197e92-97c2-4124-8e0b-fc76f6c60830" target="derived-7b4d4c68-e4a1-4af5-8ba0-1cb7d4755670--e94bcbdb-7ac3-4a66-9fd2-960e7ff54143"/>
+  </systems>
+  <systems id="45357dd3-b019-4c14-b998-1518f550d08a" name="LF1-1-1-1-1-1">
+    <parameters id="6ffeaa53-bf4b-4cac-b95c-481fe1f3542a" key="level">
+      <value xsi:type="org.eclipse.capella.simulink.infra:PrimitiveValue" id="781121c2-7b30-4607-965e-10537c2f1b4b" specification="LA"/>
+    </parameters>
+    <ports id="8254196b-eccb-4744-b382-f88c17b39e82" name="FIP 31"/>
+    <ports id="2a197e92-97c2-4124-8e0b-fc76f6c60830" name="FOP 21" kind="Outport"/>
+    <ports id="55967420-be9e-4617-baee-2b83875c1a00" name="FIP 12" index="2"/>
+    <ports id="ba489e6e-8afb-4ec2-8118-0a5f0b5d988e" name="FOP 42" kind="Outport" index="2"/>
+  </systems>
+  <systems id="675bd1e3-2398-44a8-8a49-452ac5303852" name="LF3-1">
+    <parameters id="35d7970c-71c0-4205-a79c-3f7accb801ff" key="level">
+      <value xsi:type="org.eclipse.capella.simulink.infra:PrimitiveValue" id="69182337-3177-4050-a7fd-3cedacf164f5" specification="LA"/>
+    </parameters>
+    <ports id="ccb8ca3a-db4f-4d6e-9d16-f06fd4313de5" name="FOP 51" kind="Outport"/>
+    <ports id="8a4dd0a3-9dcb-40f0-9373-6dcb97cc089c" name="FIP 51"/>
+  </systems>
+  <systems id="86e9d41a-f7bc-44c9-8209-3379950fa10d" name="LF1-2-3">
+    <parameters id="5706fcde-b57b-41e6-ab64-86fe5fcade21" key="level">
+      <value xsi:type="org.eclipse.capella.simulink.infra:PrimitiveValue" id="5a78771d-330a-4eff-8ef2-86f6ba5ddc06" specification="LA"/>
+    </parameters>
+    <ports id="e94bcbdb-7ac3-4a66-9fd2-960e7ff54143" name="FIP 11"/>
+  </systems>
+  <systems id="87628337-ff69-448f-ae23-0a9d7a9e18a2" name="FC-2">
+    <parameters id="d161d6cc-88ea-4daa-803b-7269d88a7ce1" key="level">
+      <value xsi:type="org.eclipse.capella.simulink.infra:PrimitiveValue" id="0f76a371-b22e-481e-b91a-5174b9ff0406" specification="LA"/>
+    </parameters>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="a8e129ab-4ac2-4809-945a-e9df178a6088" name="Reference to LF1-1-1-1-1-1" source="CapellaElements/ModelRef/Model_Function" system="45357dd3-b019-4c14-b998-1518f550d08a"/>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="efe62210-3d80-4109-9494-c6017ff597f3" name="Reference to LF1-2-4" source="CapellaElements/ModelRef/Model_Function" system="73828982-04d8-41f7-ba06-2f87472b104e"/>
+    <blocks xsi:type="org.eclipse.capella.simulink.core:SystemReference" id="77d41f6e-97ed-409e-aa40-579a11215a65" name="Reference to LF3-1" source="CapellaElements/ModelRef/Model_Function" system="675bd1e3-2398-44a8-8a49-452ac5303852"/>
+    <lines id="4e467efc-7812-415c-ac09-250c31f7e907" name="LF1-2-3>LF1-1-1-1-1-1" source="derived-efe62210-3d80-4109-9494-c6017ff597f3--a97089a0-3c63-4e1f-8743-948354d7de59" target="derived-a8e129ab-4ac2-4809-945a-e9df178a6088--55967420-be9e-4617-baee-2b83875c1a00"/>
+    <lines id="24ce3749-1025-400c-bc27-a35ba0dfddac" name="LF1-1-1-1-1-1>LF3-1" source="derived-a8e129ab-4ac2-4809-945a-e9df178a6088--ba489e6e-8afb-4ec2-8118-0a5f0b5d988e" target="derived-77d41f6e-97ed-409e-aa40-579a11215a65--8a4dd0a3-9dcb-40f0-9373-6dcb97cc089c"/>
+  </systems>
+  <systems id="73828982-04d8-41f7-ba06-2f87472b104e" name="LF1-2-4">
+    <parameters id="6026cd53-edab-40c4-b850-3c3a453c68e6" key="level">
+      <value xsi:type="org.eclipse.capella.simulink.infra:PrimitiveValue" id="6d785550-0e3c-4573-8d3a-76b084ec59d0" specification="LA"/>
+    </parameters>
+    <ports id="a97089a0-3c63-4e1f-8743-948354d7de59" name="FOP 11" kind="Outport"/>
+  </systems>
+</org.eclipse.capella.simulink.core:Project>

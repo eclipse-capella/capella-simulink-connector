@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:capella.project.explorer#PopupMenu?after=additions">
+         <command
+               commandId="org.eclipse.capella.simulink.capella.m2m.ui.commands.exportCapella2Simulink"
+               icon="resources/icons/MlCore.png"
+               id="org.eclipse.capella.simulink.capella.m2m.ui.contextual.exportCapella2Simulink"
+               label="%ExportCapellaElements2SimulinkCommandLabel"
+               style="push"
+               tooltip="%ExportCapellaElements2SimulinkCommandToolTip">
+            <visibleWhen
+                  checkEnabled="true">
+               <with
+                     variable="activeMenuSelection">
+                  <and>
+                     <iterate>
+                        <instanceof
+                              value="org.polarsys.capella.core.data.capellacore.CapellaElement">
+                        </instanceof>
+                     </iterate>
+                  </and>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.eclipse.capella.simulink.capella.m2m.ui.handlers.ExportCapella2SimulinkHandler"
+            description="%ExportCapella2SimulinkCommandDescription"
+            id="org.eclipse.capella.simulink.capella.m2m.ui.commands.exportCapella2Simulink"
+            name="%ExportCapella2SimulinkCommandName">
+      </command>
+   </extension>
+
+</plugin>
