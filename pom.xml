@@ -32,10 +32,9 @@
 
 		<tycho.scmUrl>scm:git:https://git.polarsys.org/c/capella/capella-simulink.git</tycho.scmUrl>
 
-		<capella-version>Capella-6.1.0</capella-version>
 		<packagedAddonName>capella-simulink-connector</packagedAddonName>
-		<updateSiteName>${packagedAddonName}-${unqualifiedVersion}.${buildQualifier}-${capella-version}-updateSite</updateSiteName>
-		<dropinName>${packagedAddonName}-${unqualifiedVersion}.${buildQualifier}-${capella-version}-dropins</dropinName>
+		<updateSiteName>${packagedAddonName}-${unqualifiedVersion}.${buildQualifier}-updateSite</updateSiteName>
+		<dropinName>${packagedAddonName}-${unqualifiedVersion}.${buildQualifier}-dropins</dropinName>
 		
 		<!-- for packaging -->
 		<platform-name>2023-03</platform-name>
