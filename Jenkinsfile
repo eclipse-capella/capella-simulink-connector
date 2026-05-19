@@ -52,7 +52,7 @@ pipeline {
                     deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.eclipse.capella.simulink.updatesite/target/*-updateSite.zip", deploymentDirName)                    
                     // deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.eclipse.capella.simulink.updatesite/target/bom.json", deploymentDirName)                    
 
-                    currentBuild.description = "${deploymentDirName} - <a href=\"https://download.eclipse.org/capella/addons/capella-simulink/dropins/nightly/${deploymentDirName}\">drop-in</a> - <a href=\"https://download.eclipse.org/capella/addons/capella-simulink/updates/nightly/${deploymentDirName}\">update-site</a>"
+                    currentBuild.description = "${deploymentDirName} - <a href=\"https://download.eclipse.org/capella/addons/capella-simulink-connector/dropins/nightly/${deploymentDirName}\">drop-in</a> - <a href=\"https://download.eclipse.org/capella/addons/capella-simulink-connector/updates/nightly/${deploymentDirName}\">update-site</a>"
                    }         
              }
         }
@@ -100,7 +100,7 @@ pipeline {
         // stage('Sonar') {
         //     steps {
         //         script {
-        //             sonar.runSonar("eclipse-capella_capella-simulink", "eclipse/capella-simulink", 'sonarcloud-token-capella-simulink')
+        //             sonar.runSonar("eclipse-capella_capella-simulink-connector", "eclipse/capella-simulink-connector", 'sonarcloud-token-capella-simulink-connector')
         //         }
         //     }
         // }
