@@ -45,36 +45,70 @@
 		<sonar.language>java</sonar.language>
 	</properties>
 
+	<modules>
+		<!-- core plugins -->
+		<module>sources/plugins/org.eclipse.capella.simulink.core</module>
+		<module>sources/plugins/org.eclipse.capella.simulink.doc</module>
+		<module>sources/plugins/org.eclipse.capella.simulink.core.model</module>
+		<module>sources/plugins/org.eclipse.capella.simulink.core.model.edit</module>
+		<module>sources/plugins/org.eclipse.capella.simulink.core.model.editor</module>
+		<module>sources/plugins/org.eclipse.capella.simulink.transformation</module>
+		<!-- core features -->
+		<module>sources/features/org.eclipse.capella.simulink.core.feature</module>
+		<!-- releng -->
+		<module>releng/org.eclipse.capella.simulink.updatesite</module>
+		<!--  core tests -->
+		<module>sources/plugins/org.eclipse.capella.simulink.transformation.tests</module>
+
+		<!-- capella plugins -->
+		<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m</module>
+		<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m.ui</module>
+		<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m.examples</module>
+		<!-- capella features -->
+		<module>capella/features/org.eclipse.capella.simulink.capella.feature</module>
+		<!--  capella tests  -->
+		<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m.tests</module>
+	</modules>
+
 	<profiles>
 		<profile>
-			<id>all</id>
+			<id>sign</id>
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>BUILD_SIGN</name>
+					<value>true</value>
+				</property>
 			</activation>
-			<modules>
-				<!-- core plugins -->
-				<module>sources/plugins/org.eclipse.capella.simulink.core</module>
-				<module>sources/plugins/org.eclipse.capella.simulink.doc</module>
-				<module>sources/plugins/org.eclipse.capella.simulink.core.model</module>
-				<module>sources/plugins/org.eclipse.capella.simulink.core.model.edit</module>
-				<module>sources/plugins/org.eclipse.capella.simulink.core.model.editor</module>
-				<module>sources/plugins/org.eclipse.capella.simulink.transformation</module>
-				<!-- core features -->
-				<module>sources/features/org.eclipse.capella.simulink.core.feature</module>
-				<!-- releng -->
-				<module>releng/org.eclipse.capella.simulink.updatesite</module>
-				<!--  core tests -->
-				<module>sources/plugins/org.eclipse.capella.simulink.transformation.tests</module>
-
-				<!-- capella plugins -->
-				<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m</module>
-				<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m.ui</module>
-				<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m.examples</module>
-				<!-- capella features -->
-				<module>capella/features/org.eclipse.capella.simulink.capella.feature</module>
-				<!--  capella tests  -->
-				<module>capella/plugins/org.eclipse.capella.simulink.capella.m2m.tests</module>
-			</modules>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.cbi.maven.plugins</groupId>
+						<artifactId>eclipse-jarsigner-plugin</artifactId>
+						<version>1.5.3</version>
+						<executions>
+							<execution>
+								<id>sign</id>
+								<phase>package</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>cbi</id>
+					<url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
 		</profile>
 	</profiles>
 
